@@ -1,251 +1,441 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Self-Supervised Point Cloud Representation Learning with Occlusion Auto-Encoder</title>
 
-    <head>
-        <meta charset="utf-8"/>
-        <title>3D-OAE</title>
-        <link rel="stylesheet" href="./style.css">
-        <script type="text/javascript" src="./gb3d_bundle.js"></script>
-    </head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-    <body>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-        <div class="container">
-            <div class="paper-title">
-                <div class="col">
-                    <div class="row"> <h1 class="short-title"> 3D Occusion Auto-encoder </h1> </div>
-                    <div class="row"> <h3 class="long-title"> Self-Supervised Point Cloud Representation Learning with Occlusion Auto-Encoder </h3> </div>
-                    <div class="row"> <p class="conference-label"> Arxiv 2022 </p> </div>
-                </div>
-            </div>
+    gtag('js', new Date());
 
-            <div class="authors-list">
-                <div class="row">
-                    <div class="col">
-                        <div class="row"> <p class="author-name"><a href="https://junshengzhou.github.io/">Junsheng Zhou</a><sup>1</sup></p> </div>
-                        
-                    </div>
-                    <div class="col">
-                        <div class="row"> <p class="author-name"><a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao">Xin Wen</a><sup>2</sup></p> </div>
-                        
-                    </div>
-                    <div class="col">
-                        <div class="row"> <p class="author-name"><a href="https://mabaorui.github.io/">Baorui Ma</a><sup>1</sup></p> </div>
-                        
-                    </div>
-                    <div class="col">
-                        <div class="row"> <p class="author-name"><a href="https://yushen-liu.github.io/">Yu-Shen Liu</a><sup>1</sup></p> </div>
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
 
-                    </div>
-                    <div class="col">
-                        <div class="row"> <p class="author-name"><a href="https://www.gaoyue.org/">Yue Gao</a><sup>1</sup></p></div>
-                    </div>
-                    <div class="col">
-                        <div class="row"> <p class="author-name"><a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a><sup>3</sup></p></div>
-                    </div>
-                    <div class="col">
-                        <div class="row"> <p class="author-name"><a href="https://h312h.github.io/">Zhizhong Han</a><sup>4</sup></p> </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="row"> <p class="affiliation"><sup>1</sup>School of Software, BNRist,Tsinghua University</p> </div>
-                    </div>
-                    <div class="col">
-                    <div class="row"> <p class="affiliation"><sup>2</sup>JD Logistics</p> </div>
-                    </div>
-                    <div class="col">
-                        <div class="row"> <p class="affiliation"><sup>3</sup>New York University</p> </div>
-                    </div>
-                    <div class="col">
-                        <div class="row"> <p class="affiliation"><sup>4</sup>Wayne State University</p> </div>
-                    </div>
-                </div>
-            </div>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
 
-            <div class="resource-link">
-                <div class="row">
-                    <div class="col">
-                        <a href="https://github.com/mabaorui/PredictableContextPrior">
-                            <img class="resource-icon" src="./images/code.png" alt="code icon">
-                            <p class="resource-text">Code</p>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://arxiv.org/abs/2204.11015">
-                            <img class="resource-icon" src="./images/paper.png" alt="paper icon">
-                            <p class="resource-text">Paper</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
 
-            <div class="intro-images">
-                <div class="row">
-                    <img class="abstract-img1" src="./images/Overview2.png" alt="abstract image"> 
-                </div>
-            </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
 
-            <section class="section">
-                <div class="container is-max-desktop">
-                      <!-- Paper video. -->
-                      <div class="columns is-centered has-text-centered">
-                        <div class="column is-four-fifths">
-                          <h2 class="title is-3">Video</h2>
-                          <div class="video">
-                            <video width="100%" height="100%" controls autoplay loop>
-                                <source src="./videos/PredictableContextPrior.mp4" type="video/mp4"/>
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        </div>
-                      </div>
-                      <!--/ Paper video. -->
-                    
-                  <br>
-                  <!-- Abstract. -->
-                  <div class="columns is-centered has-text-centered">
-                    <div class="column is-four-fifths">
-                      <h2 class="title is-3">Abstract</h2>
-                      <div class="content has-text-justified">
-                        <p>
-                            Surface reconstruction from point clouds is vital for 3D computer vision. State-of-the-art methods leverage large datasets to first learn local context priors that are represented as neural network-based signed distance functions (SDFs) with some parameters encoding the local contexts. To reconstruct a surface at a specific query location at inference time, these methods then match the local reconstruction target by searching for the best match in the local prior space (by optimizing the parameters encoding the local context) at the given query location. However, this requires the local context prior to generalize to a wide variety of unseen target regions, which is hard to achieve. To resolve this issue, we introduce Predictive Context Priors by learning Predictive Queries for each specific point cloud at inference time. Specifically, we first train a local context prior using a large point cloud dataset similar to previous techniques. For surface reconstruction at inference time, however, we specialize the local context prior into our Predictive Context Prior by learning Predictive Queries, which predict adjusted spatial query locations as displacements of the original locations. This leads to a global SDF that fits the specific point cloud the best. Intuitively, the query prediction enables us to flexibly search the learned local context prior over the entire prior space, rather than being restricted to the fixed query locations, and this improves the generalizability. Our method does not require ground truth signed distances, normals, or any additional procedure of signed distance fusion across overlapping regions. Our experimental results in surface reconstruction for single shapes or complex scenes show significant improvements over the state-of-the-art under widely used benchmarks.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <!--/ Abstract. -->
-                </div>
-              </section>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
 
-            <div class="view-3D">
-                <p class="view-3D-title">
-                    Results:
-                </p>
-                <div>
-                    <h2><strong>Visual comparison with Point2Surf [1] and Neural-pull [2] under ABC dataset.</strong></h2>
-                    
-                    <table class="dataintable">
-                    <tr>
-                    <th style="width:33%;">Point2Surf</th>
-                    <th style="width:33%;">Neural-pull</th>
-                    <th style="width:33%;">Ours</th>
-                    </tr>
-                    
-                    <tr>
-                    <td>
-                        <model-viewer alt="View reconstruction results in 3D" src="./objects/abc1_p2s.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                    </td>
-                    <td>
-                        <model-viewer alt="View reconstruction results in 3D" src="./objects/abc1_np.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                    </td>
-                    <td>
-                        <model-viewer alt="View reconstruction results in 3D" src="./objects/abc1_ours.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                    </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <model-viewer alt="View reconstruction results in 3D" src="./objects/abc2_p2s.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                        </td>
-                        <td>
-                            <model-viewer alt="View reconstruction results in 3D" src="./objects/abc2_np.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                        </td>
-                        <td>
-                            <model-viewer alt="View reconstruction results in 3D" src="./objects/abc2_ours.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                        </td>
-                    </tr>
-
-                    </table>
-                </div>
-
-                <div>
-                    <h2><strong>We reconstruct highly accurate surfaces from 300K points under FAMOUS dataset.</strong></h2>
-                    
-                    <table class="dataintable">
-                    <tr>
-                    <th style="width:50%;">Liberty</th>
-                    <th style="width:50%;">Dragon</th>
-                    </tr>
-                    
-                    <tr>
-                    <td>
-                        <model-viewer alt="View reconstruction results in 3D" src="./objects/Liberty_ours.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                    </td>
-                    <td>
-                        <model-viewer alt="View reconstruction results in 3D" src="./objects/Dragon_ours.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                    </td>
-                    </tr>
-
-                    
-                    </table>
-                </div>
-
-                <div>
-                    <h2><strong>Surface reconstruction of a real scanned scene with texture.</strong></h2>
-                    
-                    <table class="dataintable">
-                    <tr>
-                    <th style="width:100%;">Input raw point cloud scanned by LiDAR Sensors</th>
-                    </tr>
-                    
-                    <tr>
-                    <td>
-                        <model-viewer alt="View reconstruction results in 3D" src="./objects/bim406.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-                    </td>
-                    </tr>
-
-                    
-                    </table>
-                </div>
-
-            </div>
-
-            <div class="citation">
-                <p class="citation-title">
-                    Citation
-                </p>
-                <p class="citation-text">
-                    @inproceedings{PredictableContextPrior,</br>
-                        &ensp;&ensp;&ensp;&ensp;title={Surface Reconstruction from Point Clouds by Learning Predictive Context Priors},</br>
-                        &ensp;&ensp;&ensp;&ensp;author={Baorui Ma and Yu-Shen Liu and Matthias Zwicker and Zhizhong Han},</br>
-                        &ensp;&ensp;&ensp;&ensp;booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition},</br>
-                        &ensp;&ensp;&ensp;&ensp;year={2022}</br>
-                    }
-                </p>
-            </div>
-            <div class="citation">
-                <p class="citation-title">
-                    Related Work
-                </p>
-                <p class="citation-text">
-                    <strong>[1]</strong> Philipp Erler, Paul Guerrero, Stefan Ohrhallinger, Niloy J. Mitra, and Michael Wimmer. Points2Surf: Learning implicit surfaces from point clouds. In European Conference on Computer Vision, 2020. 1, 2, 5, 6, 8.</br>
-                    <strong>[2]</strong> Baorui Ma, Zhizhong Han, Yu-Shen Liu, Matthias Zwicker. Neural-Pull: Learning Signed Distance Functions from Point Clouds by Learning to Pull Space onto Surfaces. International Conference on Machine Learning (ICML), 2021, PMLR 139: 7246-7257.</br>
-                    <strong>[3]</strong> Baorui Ma, Yu-Shen Liu, Zhizhong Han. Reconstructing Surfaces for Sparse Point Clouds with On-Surface Priors. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022.</br>
-                </p>
-            </div>
-            
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/junshengzhou/3DAttriFlow">
+            3DAttriFlow
+          </a>
+          <a class="navbar-item" href="https://github.com/mabaorui/NeuralPull-Pytorch">
+            Neural-Pull
+          </a>
         </div>
-        <footer class="footer">
-            <div class="container">
-              <div class="content has-text-centered">
-              </div>
-              <div class="columns is-centered">
-                <div class="column is-8">
-                  <div class="content">
-                    <p style="text-align: center;">
-                      This webpage template is from <a href="https://lity20.github.io/DCCDIF_project_page/">DCCDIF</a>. 
-                      We sincerely thank <a href="https://github.com/lity20/">Tianyang Li</a> for this template.
-                    </p>
-                  </div>
-                </div>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </footer>
-        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    </body>
+      </div>
+    </div>
 
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://junshengzhou.github.io/">Junsheng Zhou</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao">Xin Wen</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://mabaorui.github.io/">Baorui Ma</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.gaoyue.org/">Yue Gao</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://h312h.github.io/">Zhizhong Han</a><sup>4</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>School of Software, BNRist,Tsinghua University,</span>
+            <span class="author-block"><sup>2</sup>JD Logistics,</span>
+            <span class="author-block"><sup>3</sup>New York University,</span>
+            <span class="author-block"><sup>4</sup>Wayne State University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2203.14084.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2203.14084.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/junshengzhou/3D-OAE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In recent years, neural implicit surface reconstruction methods have become popular for multi-view 3D reconstruction.
+            In contrast to traditional multi-view stereo methods, these approaches tend to produce smoother and more complete reconstructions due to the inductive smoothness bias of neural networks.
+            State-of-the-art neural implicit methods allow for high-quality reconstructions of simple scenes from many input views. 
+            Yet, their performance drops significantly for larger and more complex scenes and scenes captured from sparse viewpoints.
+            This is caused primarily by the inherent ambiguity in the RGB reconstruction loss that does not provide enough constraints, in particular in less-observed and textureless areas. 
+            Motivated by recent advances in the area of monocular geometry prediction, we systematically explore the utility these cues provide for improving neural implicit surface reconstruction. 
+            We demonstrate that depth and normal cues, predicted by general-purpose monocular estimators, significantly improve reconstruction quality and optimization time.
+            Further, we analyse and investigate multiple design choices for representing neural implicit surfaces, ranging from monolithic MLP models over single-grid to multi-resolution grid representations.
+            We observe that geometric monocular priors improve performance both for small-scale single-object as well as large-scale multi-object scenes, independent of the choice of representation.  
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <!--
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+
+        <img src="./resources/overview2.pdf" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            The `f` and `g` indicate the standard Transformer-based encoder and decoder. We first extract seed points from the input point cloud using FPS, 
+            and then separate the input into point patches by grouping local points around each seed point using KNN. After that, we randomly occlude high 
+            ratio of patches and subtract each visible patch to its corresponding seed point for detaching the patch from its spatial location. The encoder 
+            $f$ operates only on the embeddings of visible patches and the learnable occlusion tokens are combined to the latent feature before the decoder 
+            $g$. Finally, we operate addition to the output patches and their corresponding seed points to regain their spatial locations and further merge 
+            the local patches into a complete shape, where we compute a loss function with the ground truth.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Visual Effects</h2>
+          <p>
+            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+            would be impossible without nerfies since it would require going through a wall.
+          </p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/dollyzoom-stacked.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Matting</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              As a byproduct of our method, we can also solve the matting problem by ignoring
+              samples that fall outside of a bounding box during rendering.
+            </p>
+            <video id="matting-video" controls playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/matting.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Animation</h2>
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Interpolating states</h3>
+        <div class="content has-text-justified">
+          <p>
+            We can also animate the scene by interpolating the deformation latent codes of two input
+            frames. Use the slider here to linearly interpolate between the left frame and the right
+            frame.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="https://homes.cs.washington.edu/~kpar/nerfies/images/interpolate_start.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Start Frame</p>
+          </div>
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="https://homes.cs.washington.edu/~kpar/nerfies/images/interpolate_end.jpg"
+                 class="interpolation-image"
+                 alt="Interpolation end reference image."/>
+            <p class="is-bold">End Frame</p>
+          </div>
+        </div>
+        <br/>
+        <!--/ Interpolating. -->
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-4">Re-rendering the input video</h3>
+        <div class="content has-text-justified">
+          <p>
+            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
+            viewpoint such as a stabilized camera by playing back the training deformations.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/replay.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+          </p>
+          <p>
+            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
+            both use deformation fields to model non-rigid scenes.
+          </p>
+          <p>
+            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
+          </p>
+          <p>
+            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
