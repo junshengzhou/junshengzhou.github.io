@@ -82,7 +82,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title">Self-Supervised Point Cloud Representation Learning with Occlusion Auto-Encoder</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://junshengzhou.github.io/">Junsheng Zhou</a><sup>1</sup>,</span>
@@ -171,21 +171,22 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+
+        <img src="./resources/3D-OAE.png" class="center">
+
+      </div>
     </div>
+    <!--/ Animation. -->
+
   </div>
-</section> -->
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -195,16 +196,23 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In recent years, neural implicit surface reconstruction methods have become popular for multi-view 3D reconstruction.
-            In contrast to traditional multi-view stereo methods, these approaches tend to produce smoother and more complete reconstructions due to the inductive smoothness bias of neural networks.
-            State-of-the-art neural implicit methods allow for high-quality reconstructions of simple scenes from many input views. 
-            Yet, their performance drops significantly for larger and more complex scenes and scenes captured from sparse viewpoints.
-            This is caused primarily by the inherent ambiguity in the RGB reconstruction loss that does not provide enough constraints, in particular in less-observed and textureless areas. 
-            Motivated by recent advances in the area of monocular geometry prediction, we systematically explore the utility these cues provide for improving neural implicit surface reconstruction. 
-            We demonstrate that depth and normal cues, predicted by general-purpose monocular estimators, significantly improve reconstruction quality and optimization time.
-            Further, we analyse and investigate multiple design choices for representing neural implicit surfaces, ranging from monolithic MLP models over single-grid to multi-resolution grid representations.
-            We observe that geometric monocular priors improve performance both for small-scale single-object as well as large-scale multi-object scenes, independent of the choice of representation.  
-          </p>
+            Learning representations for point clouds is an important task in 3D computer vision, 
+            especially without manually annotated supervision. Previous methods usually take the 
+            common aid from auto-encoders to establish the self-supervision by reconstructing the 
+            input itself. However, most of the existing self-reconstruction based auto-encoders 
+            merely focus on the global shapes, and ignore the hierarchical context between the local
+             and global geometries, which is a crucial supervision for 3D representation learning. 
+             To resolve this issue, we present a novel self-supervised point cloud representation 
+             learning framework, named 3D Occlusion Auto-Encoder (3D-OAE). Our key idea is to randomly
+              occlude some local patches of the input point cloud and establish the supervision via 
+              recovering the occluded patches using the remaining visible ones. Specifically, we design
+               an encoder for learning the features of visible local patches, and a decoder for leveraging
+                these features to predict the occluded patches. In contrast to previous methods, our 
+                3D-OAE can remove a large proportion of patches and predict them only with a small number
+                 of visible patches, which enable us to significantly accelerate training and yield a nontrivial
+                  self-supervisory performance. The trained encoder can be further transferred to various 
+                  downstream tasks. We demonstrate our superior performances over the state-of-the-art methods
+                   in different discriminant and generative applications under widely used benchmarks.          </p>
         </div>
       </div>
     </div>
@@ -236,14 +244,14 @@
       <div class="column is-full-width">
         <h2 class="title is-3" style="margin-top: -20px">Method</h2>
 
-        <img src="./resources/overview2.pdf" class="center">
+        <img src="./resources/overview.png" class="center">
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
-            The `f` and `g` indicate the standard Transformer-based encoder and decoder. We first extract seed points from the input point cloud using FPS, 
+            We first extract seed points from the input point cloud using FPS, 
             and then separate the input into point patches by grouping local points around each seed point using KNN. After that, we randomly occlude high 
             ratio of patches and subtract each visible patch to its corresponding seed point for detaching the patch from its spatial location. The encoder 
-            $f$ operates only on the embeddings of visible patches and the learnable occlusion tokens are combined to the latent feature before the decoder 
-            $g$. Finally, we operate addition to the output patches and their corresponding seed points to regain their spatial locations and further merge 
+            operates only on the embeddings of visible patches and the learnable occlusion tokens are combined to the latent feature before the decoder 
+            . Finally, we operate addition to the output patches and their corresponding seed points to regain their spatial locations and further merge 
             the local patches into a complete shape, where we compute a loss function with the ground truth.
           </p>
         </div>
