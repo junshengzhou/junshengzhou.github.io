@@ -243,144 +243,21 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
 
     <!-- Method. -->
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3" style="margin-top: -20px">Reconstruction Results</h2>
-      </div>
-    </div>
-  </div>
-  <div class="container is-centered">
-    <!-- <div class="container is-max-desktop"> -->
-
-      <!-- Results. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths"> -->
-    <div class="view-3D">
-      <p class="view-3D-title">
-          ShapeNet Cars:
-      </p>
-    
-    
-      <div>
-        <!-- <h2><strong>We reconstruct highly accurate surfaces from 10K points under ShapeNet Cars dataset.</strong></h2> -->
-        
-        <table class="dataintable">
-        <!-- <tr>
-        <th style="width:50%;">Liberty</th>
-        <th style="width:50%;">Dragon</th>
-        </tr> -->
-        
-        <tr>
-        <td>
-            <model-viewer alt="View reconstruction results in 3D" src="./objects/lounge.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-        </td>
-        <td>
-            <model-viewer alt="View reconstruction results in 3D" src="./objects/stonewall.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-        </td>
-        <td>
-          <model-viewer
-          bounds="tight"
-          enable-pan
-          src="./objects/lounge.glb"
-          ar
-          ar-modes="webxr scene-viewer quick-look"
-          camera-controls
-          shadow-intensity="1"
-          camera-orbit="-45deg 75deg auto"
-          />
-        </td>
-        </tr>
-
-        
-        </table>
-      </div>
-      <p class="view-3D-title">
-        3D Scene:
-      </p>
-      <div>
-        <!-- <h2><strong>Surface reconstruction of a real scanned scene.</strong></h2> -->
-        
-        <table class="dataintable">
-        <tr>
-        <!-- <th style="width:100%;">Surface reconstruction of a real scanned scene.</th> -->
-        </tr>
-        
-        <tr>
-        <td>
-            <model-viewer alt="View reconstruction results in 3D" src="./objects/lounge.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-        </td>
-        </tr>
-        <tr>
-          <td>
-              <model-viewer alt="View reconstruction results in 3D" src="./objects/stonewall.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
-          </td>
-        </tr>
-        
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- Results. -->
-    <div class="columns is-centered ">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Visualization Results</h2>
-
-
-        <h3 class="title is-4">Self-Reconstruction</h3>
-        <div class="content has-text-justified">
-          <p>
-             
-          </p>
-        </div>
-        
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 autoplay
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 loop
-                 width="90%">
-            <source src="./resources/v1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
-        <h3 class="title is-4">Point Cloud Completion</h3>
-        <div class="content has-text-justified">
-          <p>
-          </p>
-        </div>
-        
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 autoplay
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 loop
-                 width="90%">
-            <source src="./resources/v2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Comparison Results</h2>
+        <h3 class="title is-4">3DScene datset</h3>
+        <img src="./resources/3dscene.png" class="center">
+        <h3 class="title is-4">SRB dataset</h3>
+        <img src="./resources/srb.png" class="center">
 
       </div>
     </div>
+    <!--/ Animation. -->
 
   </div>
 </section>
@@ -391,13 +268,13 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{zhou2022-3DOAE,
-      title={Self-Supervised Point Cloud Representation Learning with Occlusion Auto-Encoder},
-      author={Zhou, Junsheng and Wen, Xin and Ma, Baorui and Liu, Yu-Shen and Gao, Yue and Fang, Yi and Han, Zhizhong},
-      journal={arXiv preprint arXiv:2203.14084},
-      year={2022}
+    <pre><code>@inproceedings{Zhou2022CAP-UDF,
+      title = {Learning Consistency-Aware Unsigned Distance Functions Progressively from Raw Point Clouds},
+      author = {Zhou, Junsheng and Ma, Baorui and Liu Yu-Shen and Fang Yi and Han Zhizhong},
+      booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+      year = {2022}
     }
-}</code></pre>
+  </code></pre>
   </div>
 </section>
 
@@ -408,11 +285,7 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-            This webpage template is from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
-            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+            This webpage template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
           </p>
         </div>
       </div>
