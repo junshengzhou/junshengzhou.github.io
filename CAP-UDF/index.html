@@ -6,7 +6,7 @@
         content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>3D Occlusion Auto-Encoder</title>
+  <title>CAP-UDF</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -66,7 +66,7 @@
           <a class="navbar-item" href="https://github.com/junshengzhou/3DAttriFlow">
             3DAttriFlow
           </a>
-          <a class="navbar-item" href="https://github.com/junshengzhou/3D-OAE">
+          <a class="navbar-item" href="https://junshengzhou.github.io/3D-OAE">
             3D Occlusion Auto-Encoder
           </a>
           <a class="navbar-item" href="https://github.com/mabaorui/NeuralPull-Pytorch">
@@ -85,12 +85,11 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Self-Supervised Point Cloud Representation Learning with Occlusion Auto-Encoder</h1>
+          <h1 class="title is-1 publication-title">Learning Consistency-Aware Unsigned Distance Functions Progressively from Raw Point Clouds</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://junshengzhou.github.io/">Junsheng Zhou</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao">Xin Wen</a><sup>2</sup>,</span>
+              <a href="https://junshengzhou.github.io/">Junsheng Zhou</a><sup>1</sup>,
+            </span>
             <span class="author-block">
               <a href="https://mabaorui.github.io/">Baorui Ma</a><sup>1</sup>,
             </span>
@@ -98,21 +97,17 @@
               <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.gaoyue.org/">Yue Gao</a><sup>1</sup>,
+              <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a><sup>3</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://h312h.github.io/">Zhizhong Han</a><sup>4</sup>
+              <a href="https://h312h.github.io/">Zhizhong Han</a><sup>3</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>School of Software, BNRist,Tsinghua University,</span>
-            <span class="author-block"><sup>2</sup>JD Logistics,</span>
-            <span class="author-block"><sup>3</sup>New York University,</span>
-            <span class="author-block"><sup>4</sup>Wayne State University</span>
+            <span class="author-block"><sup>2</sup>New York University Abu Dhabi,</span>
+            <span class="author-block"><sup>3</sup>Wayne State University</span>
           </div>
 
           <div class="column has-text-centered">
@@ -130,7 +125,7 @@
 
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/junshengzhou/3D-OAE"
+                <a href="https://github.com/junshengzhou/CAP-UDF"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -156,7 +151,28 @@
       <div class="column is-full-width">
         <h2 class="title is-3" style="margin-top: -20px"></h2>
 
-        <img src="./resources/3D-OAE.png" class="center">
+        <img src="./resources/2d_demo.png" class="center">
+        <div class="content has-text-justified">
+          <p>
+            We propose to learn a consistency-aware unsigned distance field to represent shapes and scenes with arbitary architecture. We show a 2D case of learning the distance field from a sparse 2D point cloud $P$ which only contains 13 points. The level-sets show the distance fields learned by (a) Neural-pull, (b) SAL, (c) NDF, (d) Ours. The color of blue and red represent positive or negative distance. The darker the color, the closer it is to the approximated surface.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px"></h2>
+
+        <img src="./resources/cars.png" class="center">
 
       </div>
     </div>
@@ -173,23 +189,11 @@
         <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Learning representations for point clouds is an important task in 3D computer vision, 
-            especially without manually annotated supervision. Previous methods usually take the 
-            common aid from auto-encoders to establish the self-supervision by reconstructing the 
-            input itself. However, most of the existing self-reconstruction based auto-encoders 
-            merely focus on the global shapes, and ignore the hierarchical context between the local
-             and global geometries, which is a crucial supervision for 3D representation learning. 
-             To resolve this issue, we present a novel self-supervised point cloud representation 
-             learning framework, named 3D Occlusion Auto-Encoder (3D-OAE). Our key idea is to randomly
-              occlude some local patches of the input point cloud and establish the supervision via 
-              recovering the occluded patches using the remaining visible ones. Specifically, we design
-               an encoder for learning the features of visible local patches, and a decoder for leveraging
-                these features to predict the occluded patches. In contrast to previous methods, our 
-                3D-OAE can remove a large proportion of patches and predict them only with a small number
-                 of visible patches, which enable us to significantly accelerate training and yield a nontrivial
-                  self-supervisory performance. The trained encoder can be further transferred to various 
-                  downstream tasks. We demonstrate our superior performances over the state-of-the-art methods
-                   in different discriminant and generative applications under widely used benchmarks.          </p>
+            Surface reconstruction for point clouds is an important task in 3D computer vision. Most of the latest methods resolve this problem by learning signed distance functions (SDF) from point clouds, which are limited to reconstructing shapes or scenes with closed surfaces.
+            Some other methods tried to represent shapes or scenes with open surfaces using unsigned distance functions (UDF) which are learned from large scale ground truth unsigned distances. However, the learned UDF is hard to provide smooth distance fields near the surface due to the noncontinuous character of point clouds.
+            In this paper, we propose a novel method to learn consistency-aware unsigned distance functions directly from raw point clouds. We achieve this by learning to move 3D queries to reach the surface with a field consistency constraint, where we also enable to progressively estimate a more accurate surface.
+            Specifically, we train a neural network to gradually infer the relationship between 3D queries and the approximated surface by searching for the moving target of queries in a dynamic way, which results in a consistent field around the surface. Meanwhile, we introduce a polygonization algorithm to extract surfaces directly from the gradient field of the learned UDF. The experimental results in surface reconstruction for synthetic and real scan data show significant improvements over the state-of-the-art under the widely used benchmarks.          
+          </p>
         </div>
       </div>
     </div>
@@ -211,12 +215,7 @@
         <img src="./resources/overview.png" class="center">
         <div class="content has-text-justified">
           <p style="margin-top: 30px">
-            We first extract seed points from the input point cloud using FPS, 
-            and then separate the input into point patches by grouping local points around each seed point using KNN. After that, we randomly occlude high 
-            ratio of patches and subtract each visible patch to its corresponding seed point for detaching the patch from its spatial location. The encoder 
-            operates only on the embeddings of visible patches and the learnable occlusion tokens are combined to the latent feature before the decoder 
-            . Finally, we operate addition to the output patches and their corresponding seed points to regain their spatial locations and further merge 
-            the local patches into a complete shape, where we compute a loss function with the ground truth.
+            Overview of our method. The CAP-UDF is designed to reconstruct surfaces from raw point clouds by learning consistency-aware UDFs. Given a 3D query $q_i \in {Q_1}$ as input, the neural network $f$ predicts the unsigned distance $f(q_i)$ of $q_i$ and moves $q_i$ against the gradient direction at $q_i$ with a stride of $f(q_i)$. The field consistency loss is then computed between the moved queries $q'_i$ and the target point cloud $P$ as the optimization target. After the network converges in the current stage, we update $P$ with a subset of $q'_i$ as additional priors to learn more local details in the next stage. Finally, we use the gradient vector field of the learned UDFs to model the relationship between different 3D grids and extract iso-surfaces directly.
           </p>
         </div>
 
