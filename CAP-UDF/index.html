@@ -300,18 +300,18 @@
             <model-viewer alt="View reconstruction results in 3D" src="./objects/lounge.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
         </td>
         <td>
-            <model-viewer alt="View reconstruction results in 3D" src="./objects/lounge.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
+            <model-viewer alt="View reconstruction results in 3D" src="./objects/car1.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
         </td>
         <td>
           <model-viewer
           bounds="tight"
           enable-pan
-          src="./objects/lounge.glb"
+          src="./objects/car1.glb"
           ar
           ar-modes="webxr scene-viewer quick-look"
           camera-controls
           shadow-intensity="1"
-          camera-orbit="-45deg 75deg auto"
+          camera-orbit="auto auto auto"
           />
         </td>
         </tr>
@@ -332,12 +332,21 @@
         
         <tr>
         <td>
-            <model-viewer alt="View reconstruction results in 3D" src="./objects/lounge.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
+            <model-viewer alt="View reconstruction results in 3D" src="./objects/lounge.glb" exposure="0.3" auto-rotate camera-controls camera-orbit="auto auto 180deg"></model-viewer>
         </td>
         </tr>
         <tr>
           <td>
-              <model-viewer alt="View reconstruction results in 3D" src="./objects/lounge.glb" exposure="0.3" auto-rotate camera-controls></model-viewer>
+            <model-viewer
+            bounds="tight"
+            enable-pan
+            src="./objects/lounge.glb"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            camera-controls
+            shadow-intensity="1"
+            camera-orbit="auto auto 180deg"
+            />
           </td>
         </tr>
         
