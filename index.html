@@ -54,15 +54,19 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>News</heading>
                 <ul>
-
+                  <li><strong>11/2022:</strong> Our paper <a href="https://github.com/lisj575/NeAF/">NeAF</a> on implicit point normal estimation got accepted to <b>AAAI 2023</b>.
+                  </li>
                   <li><strong>09/2022:</strong> Our paper <a href="https://junshengzhou.github.io/CAP-UDF/">CAP-UDF</a> on surface reconstruction got accepted to <b>NeurIPS 2022</b>.
                   </li>
                   <li><strong>03/2022:</strong> Our paper <a href='https://github.com/junshengzhou/3DAttriFlow'>3DAttriFlow</a> on point cloud generation got accepted to <b>CVPR 2022.</b>
                   </li>
-                  <li><strong>11/2021:</strong> My team won the 3st place in the <a href='https://mvp-dataset.github.io/'>MVP Completion Challenge</a> (ICCV 2021 Workshop).
+                  <li><strong>11/2021:</strong> My team won the <strong><span style="color:#ff0000;">3rd place</span></strong> in the <a href='https://mvp-dataset.github.io/'>MVP Completion Challenge</a> (<b>ICCV 2021</b> Workshop).
+                  </li>
+                  <li><strong>10/2021:</strong> Our paper MSM-Vis on data visualization won the <strong><span style="color:#ff0000;">Best Poster Paper</span></strong> on <b>ChinaVR 2021</b>.
                   </li>
                   <li><strong>09/2021:</strong> Started master journey at <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>.
                   </li>
+
                 </ul>
     
               </td>
@@ -77,6 +81,50 @@
             </td>
           </tr>
         </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="neaf_stop()" onmouseover="neaf_start()">
+            <td width="25%">
+              <div class="one">
+                <div class="two" id="neaf" style="opacity: 0;">
+                  <img src='media/neaf_before.gif' width="200">
+                </div>
+                <img src="media/neaf_after.png" width="200">
+
+              </div>
+              <script type="text/javascript">
+                function neaf_start() {
+                  document.getElementById('neaf').style.opacity = "1";
+                }
+                function neaf_stop() {
+                  document.getElementById('neaf').style.opacity = "0";
+                }
+                neaf_stop()
+              </script>
+            </td>
+
+            <td width="65%" valign="top">
+              <a href="https://github.com/lisj575/NeAF/">
+                <papertitle>NeAF: Learning Neural Angle Fields for Point Normal Estimation.</papertitle>
+              </a>
+              <br>
+              Shujuan Li*, <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>,
+              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+              <br>
+              <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2023
+              <br>
+              <!-- <a href="https://github.com/junshengzhou/3DAttriFlow">project page</a> |             
+              <a href="https://arxiv.org/abs/2203.15190">arXiv</a> |
+              <a href="https://github.com/junshengzhou/3DAttriFlow">code</a> -->
+
+              <p align="justify", style="font-size:13px">We present NeAF, a novel schema to learn implicit angle fields for point normal estimation. 
+                NeAF extends the success of implicit functions (e.g. NeRF and DeepSDF) to normal estimation.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
@@ -209,6 +257,20 @@
             </tr>
             </tbody>
           </table>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <heading>Academic Services</heading>
+              <tr>
+                <td>
+                  
+                  <ul>
+                      <li> <strong>Conference Reviewer</strong>: CVPR <br>
+                      <!-- <li> <strong>Journal Reviewer</strong>: TPAMI, CVIU -->
+                  </ul>
+                </td>
+              </tr>
+          </table>
+
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tr>
               <td>
@@ -217,7 +279,7 @@
                 <font size="2">
                 template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
                 <br>
-                Last updated: October 2022
+                Last updated: November 2022
                 <br>
                 
               </font>
