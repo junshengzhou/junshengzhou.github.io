@@ -22,20 +22,19 @@
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  <table style="width:100%;max-width:850px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr style="padding:0px">
       <td style="padding:0px">
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
+            <td style="padding:2.5%;width:62%;vertical-align:middle">
               <p style="text-align:center">
                 <name>Junsheng Zhou | 周俊昇</name>
               </p>
               <p>I am currently a Master student (from fall, 2021) in <a href="https://www.thss.tsinghua.edu.cn/">School of Software</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, advised by Prof. <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>.
               </p>
               <p>
-                My research interests lie in 3D computer vision, especially in 3D reconstruction, point cloud generation and surface reconstruction
-                 from point clouds. I'm also very interested in 3D generative models. 
+                My research interests lie in the area of 3D computer vision and grapics, especially in 3D reconstruction, 3D foundation models, cross-modal learning and generative models. 
               </p>
               <p style="text-align:center">
                 <a href="mailto:zhoujs21@mails.tsinghua.edu.cn">Email</a> &nbsp/&nbsp
@@ -44,7 +43,7 @@
               </p>
             </td>
             <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="media/profile.png"><img style="width:100%;max-width:100%" alt="profile photo" src="media/profile.png" class="hoverZoomLink"></a>
+              <a href="media/profile.png"><img style="width:90%;max-width:100%" alt="profile photo" src="media/profile.png" class="hoverZoomLink"></a>
             </td>
           </tr>
         </tbody></table>
@@ -54,6 +53,10 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>News</heading>
                 <ul>
+                  <li><strong>10/2022:</strong> We present <a href="https://github.com/baaivision/Uni3D">Uni3D</a>, a unified 3D foundation model with <strong><span style="color:#ff0000;">one billion</span></strong> parameters.
+                  </li>
+                  <li><strong>09/2022:</strong> Our paper <a href="">VP2PMatching</a> on image to LiDAR point cloud registration got accepted to <b>NeurIPS 2023</b> <strong><span style="color:#ff0000;">(Spotlight)</span></strong>.
+                  </li>
                   <li><strong>08/2022:</strong> Our paper <a href="https://github.com/junshengzhou/LevelSetUDF/">LevelSetUDF</a> on neural implicit representations got accepted to <b>ICCV 2023</b>.
                   </li>
                   <li><strong>06/2023:</strong> One paper on surface reconstruction that I advised got accepted to <b>SMI 2023</b> and <b>C&G 2023</b>.
@@ -81,7 +84,6 @@
             </tr>
             </tbody></table>
 
-
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
@@ -93,13 +95,105 @@
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
+          <tr onmouseout="uni3d_stop()" onmouseover="uni3d_start()">
+            <td width="25%">
+              <div class="one">
+                <div class="two" id="uni3d" style="opacity: 0;">
+                  <img src='media/uni3d_before.jpg' width="225">
+                </div>
+                <img src="media/uni3d_after.jpg" width="225">
+      
+              </div>
+              <script type="text/javascript">
+                function uni3d_start() {
+                  document.getElementById('uni3d').style.opacity = "1";
+                }
+                function uni3d_stop() {
+                  document.getElementById('uni3d').style.opacity = "0";
+                }
+                uni3d_stop()
+              </script>
+            </td>
+      
+            <td width="65%" valign="top">
+              <a href="https://github.com/baaivision/Uni3D">
+                <papertitle>Uni3D: Exploring Unified 3D Representation at Scale
+                </papertitle>
+              </a>
+              <br>
+              <strong>Junsheng Zhou*</strong>, <a href="https://github.com/Wolfwjs/"> Jinsheng Wang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, 
+              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=en"> Tiejun Huang</a>, <a href="https://www.xloong.wang/">Xinlong Wang</a>
+              <br>
+              <em>arXiv 2023.
+              <br>
+              <a href="https://huggingface.co/BAAI/Uni3D/tree/main/modelzoo">Model Zoo</a> |             
+              <a href="https://arxiv.org/abs/2310.06773/">arXiv</a> |
+              <a href="https://github.com/baaivision/Uni3D">code</a>
+      
+              <p align="justify", style="font-size:13px">We present Uni3D, a unified and scalable 3D pretraining framework for large-scale 3D representation learning, and explore its limits at the scale of one billion parameters.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="VP2P_stop()" onmouseover="VP2P_start()">
+            <td width="25%">
+              <div class="one">
+                <div class="two" id="VP2P" style="opacity: 0;">
+                  <video width="225" muted="" autoplay="" loop="">
+                    <source src="media/Video_VP2PMatching_before.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <img src="media/Video_VP2PMatching_after.png" width="225">
+      
+              </div>
+
+              <script type="text/javascript">
+                function VP2P_start() {
+                  document.getElementById('VP2P').style.opacity = "1";
+                }
+                function VP2P_stop() {
+                  document.getElementById('VP2P').style.opacity = "0";
+                }
+                VP2P_stop()
+              </script>
+            </td>
+      
+            <td width="65%" valign="top">
+              <a href="">
+                <papertitle>Differentiable Registration of Images and LiDAR Point Clouds with VoxelPoint-to-Pixel Matching
+                </papertitle>
+              </a>
+              <br>
+              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Wenyuan Zhang, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>,
+              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+              <br>
+              <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2023  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
+              <br>
+              <a href="">project page</a> |             
+              <a href="">arXiv</a> |
+              <a href="">code</a>
+      
+              <p align="justify", style="font-size:13px">We design a triplet network to learn VoxelPoint-to-Pixel matching via a differentiable probabilistic PnP solver.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
           <tr onmouseout="ICCVUDF_stop()" onmouseover="ICCVUDF_start()">
             <td width="25%">
               <div class="one">
                 <div class="two" id="ICCVUDF" style="opacity: 0;">
-                  <img src='media/iccv23udf_before.gif' width="200">
+                  <img src='media/iccv23udf_before.gif' width="225">
                 </div>
-                <img src="media/ICCVUDF_after.png" width="200">
+                <img src="media/ICCVUDF_after.png" width="225">
 
               </div>
               <script type="text/javascript">
@@ -128,7 +222,7 @@
               <a href="https://arxiv.org/abs/2308.11441/">arXiv</a> |
               <a href="https://github.com/junshengzhou/LevelSetUDF">code</a>
 
-              <p align="justify", style="font-size:13px">we propose to guide the learning of zero level set in UDF using the rest non-zero level sets via a projection procedure.
+              <p align="justify", style="font-size:13px">We propose to guide the learning of zero level set in UDF using the rest non-zero level sets via a projection procedure.
               </p>
             </td>
           </tr>
@@ -141,9 +235,9 @@
             <td width="25%">
               <div class="one">
                 <div class="two" id="LSA" style="opacity: 0;">
-                  <img src='media/GradientConsistency_before.gif' width="200">
+                  <img src='media/GradientConsistency_before.gif' width="225">
                 </div>
-                <img src="media/LSA_after.png" width="200">
+                <img src="media/LSA_after.png" width="225">
 
               </div>
               <script type="text/javascript">
@@ -171,7 +265,7 @@
               <a href="http://arxiv.org/abs/2305.11601/">arXiv</a> |
               <a href="https://github.com/mabaorui/TowardsBetterGradient/">code</a>
 
-              <p align="justify", style="font-size:13px">we propose a level set alignment loss to
+              <p align="justify", style="font-size:13px">We propose a level set alignment loss to
                 evaluate the parallelism of level sets, which can be minimized to achieve better gradient consistency and eliminate uncertainty in the field.
               </p>
             </td>
@@ -185,9 +279,9 @@
             <td width="25%">
               <div class="one">
                 <div class="two" id="SMI" style="opacity: 0;">
-                  <img src='media/smi_before.png' width="200">
+                  <img src='media/smi_before.png' width="225">
                 </div>
-                <img src="media/smi_after.png" width="200">
+                <img src="media/smi_after.png" width="225">
 
               </div>
               <script type="text/javascript">
@@ -229,9 +323,9 @@
             <td width="25%">
               <div class="one">
                 <div class="two" id="neaf" style="opacity: 0;">
-                  <img src='media/neaf_before.gif' width="200">
+                  <img src='media/neaf_before.gif' width="225">
                 </div>
-                <img src="media/neaf_after.png" width="200">
+                <img src="media/neaf_after.png" width="225">
 
               </div>
               <script type="text/javascript">
@@ -273,9 +367,9 @@
               <td width="25%">
                 <div class="one">
                   <div class="two" id="capudf_shape" style="opacity: 0;">
-                    <img src='media/capudf_before.png' width="200">
+                    <img src='media/capudf_before.png' width="225">
                   </div>
-                  <img src="media/capudf_after.png" width="200">
+                  <img src="media/capudf_after.png" width="225">
 
                 </div>
                 <script type="text/javascript">
@@ -315,9 +409,9 @@
               <td width="25%">
                 <div class="one">
                   <div class="two" id="attriflow_shape" style="opacity: 0;">
-                    <img src='media/attriflow_before.gif' width="200">
+                    <img src='media/attriflow_before.gif' width="225">
                   </div>
-                  <img src="media/attriflow_after.png" width="200">
+                  <img src="media/attriflow_after.png" width="225">
 
                 </div>
                 <script type="text/javascript">
@@ -359,12 +453,12 @@
               <td width="25%">
                 <div class="one">
                     <div class="two" id="oae_shape" style="opacity: 0;">
-                        <video width="200" muted="" autoplay="" loop="">
+                        <video width="225" muted="" autoplay="" loop="">
                           <source src="media/3doae_after.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                         </video>
                     </div>
-                  <img src="media/3doae_before.png" width="200">
+                  <img src="media/3doae_before.png" width="225">
 
                 </div>
                 <script type="text/javascript">
@@ -398,6 +492,24 @@
             </tr>
             </tbody>
           </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <heading>Honors and Awards</heading>
+                <ul>
+
+                  <li> <strong>National Scholarship</strong> (国家奖学金, Top 1% at Tsinghua University), 2023.
+                  </li>
+                  <li> <strong>The 3rd Place</strong> in the MVP Completion Challenge (<b>ICCV 2021</b> Workshop)</strong>, 2021.
+                  </li>
+                  <li> <strong>Best Poster Paper Awards</strong> on ChinaVR, 2021.
+                  </li>
+                </ul>
+    
+              </td>
+            </tr>
+            </tbody></table>
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -437,7 +549,7 @@
                 <font size="2">
                 template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
                 <br>
-                Last updated: Sep 2023
+                Last updated: Oct 2023
                 <br>
                 
               </font>
