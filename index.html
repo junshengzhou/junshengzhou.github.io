@@ -31,7 +31,7 @@
               <p style="text-align:center">
                 <name>Junsheng Zhou | 周俊昇</name>
               </p>
-              <p>I am currently a Master student (from fall, 2021) in <a href="https://www.thss.tsinghua.edu.cn/">School of Software</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, advised by Prof. <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>.
+              <p>I am currently a Master student (since fall, 2021) and an incoming Ph.D student in <a href="https://www.thss.tsinghua.edu.cn/">School of Software</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, advised by Prof. <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>.
               </p>
               <p>
                 My research interests lie in the area of 3D computer vision and grapics, especially in 3D reconstruction, 3D foundation models, cross-modal learning and generative models. 
@@ -53,8 +53,10 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>News</heading>
                 <ul>
-
-		  <li><strong>10/2023:</strong> Releasing <a href="https://github.com/baaivision/Uni3D">Uni3D</a>, a unified 3D foundation model with <strong><span style="color:#ff0000;">one billion</span></strong> parameters.
+                  <li><strong>01/2024:</strong> Our work <a href="">Uni3D</a> on scaling up 3D foundation models got accepted to <b>ICLR 2024</b> <strong><span style="color:#ff0000;">(Spotlight)</span></strong>.
+                    <!-- <li><strong>01/2024:</strong> Our work <a href="">Uni3D</a> got accepted to <b>ICLR 2024</b> <strong><span style="color:#ff0000;">(Spotlight)</span></strong>. -->
+                  <li><strong>12/2023:</strong> Two papers on multi-view reconstruction and point upsampling got accepted to <b>AAAI 2024</b>.
+                  <li><strong>10/2023:</strong> Releasing <a href="https://github.com/baaivision/Uni3D">Uni3D</a>, a unified 3D foundation model with <strong><span style="color:#ff0000;">one billion</span></strong> parameters.
                   </li>
                   <li><strong>09/2023:</strong> Our paper <a href="">VP2P-Match</a> on image to LiDAR point cloud registration got accepted to <b>NeurIPS 2023</b> <strong><span style="color:#ff0000;">(Spotlight)</span></strong>.
                   </li>
@@ -97,7 +99,7 @@
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
           <tr onmouseout="uni3d_stop()" onmouseover="uni3d_start()">
-            <td width="25%">
+            <td width="28%">
               <div class="one">
                 <div class="two" id="uni3d" style="opacity: 0;">
                   <img src='media/uni3d_before.jpg' width="225">
@@ -125,7 +127,7 @@
               <strong>Junsheng Zhou*</strong>, <a href="https://github.com/Wolfwjs/"> Jinsheng Wang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, 
               <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=en"> Tiejun Huang</a>, <a href="https://www.xloong.wang/">Xinlong Wang</a>
               <br>
-              <em>arXiv 2023.
+              <em>International Conference on Learning Representations <b>(ICLR)</b></em>, 2024  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
               <br>
               <a href="https://huggingface.co/BAAI/Uni3D/tree/main/modelzoo">Model Zoo</a> |             
               <a href="https://arxiv.org/abs/2310.06773/">arXiv</a> |
@@ -138,11 +140,149 @@
           </tbody>
         </table>
 
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="GeoDream_stop()" onmouseover="GeoDream_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="GeoDream" style="opacity: 0;">
+                  <video width="225" muted="" autoplay="" loop="">
+                    <source src="media/GeoDream_after.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <img src="media/GeoDream_before.png" width="225", height="120">
+      
+              </div>
+      
+              <script type="text/javascript">
+                function GeoDream_start() {
+                  document.getElementById('GeoDream').style.opacity = "1";
+                }
+                function GeoDream_stop() {
+                  document.getElementById('GeoDream').style.opacity = "0";
+                }
+                GeoDream_stop()
+              </script>
+            </td>
+      
+            <td width="65%" valign="top">
+              <a href="https://mabaorui.github.io/GeoDream_page/">
+                <papertitle>GeoDream: Disentangling 2D and Geometric Priors for High-Fidelity and Consistent 3D Generation
+                </papertitle>
+              </a>
+              <br>
+              <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://github.com/Bitterdhg/"> Haoge Deng*</a>, <strong>Junsheng Zhou</strong>, 
+              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=en"> Tiejun Huang</a>, <a href="https://www.xloong.wang/">Xinlong Wang</a>
+              <br>
+              <em>arXiv</b></em>, 2024
+              <br>
+              <a href="https://mabaorui.github.io/GeoDream_page/">project page</a> |             
+              <a href="https://arxiv.org/abs/2311.17971/">arXiv</a> |
+              <a href="https://github.com/baaivision/GeoDream">code</a>
+      
+              <p align="justify", style="font-size:13px">We present a 3D generation method that incorporates explicit generalized 3D priors with 2D diffusion priors to enhance the capability of generating unambiguous 3D consistent geometries.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="LDI_stop()" onmouseover="LDI_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="LDI" style="opacity: 0;">
+                  <img src='media/LDI_after.gif' width="225", height="120">
+                </div>
+                <img src="media/LDI_before.png" width="225", height="120">
+      
+              </div>
+      
+              <script type="text/javascript">
+                function LDI_start() {
+                  document.getElementById('LDI').style.opacity = "1";
+                }
+                function LDI_stop() {
+                  document.getElementById('LDI').style.opacity = "0";
+                }
+                LDI_stop()
+              </script>
+            </td>
+      
+            <td width="65%" valign="top">
+              <a href="https://lisj575.github.io/APU-LDI/">
+                <papertitle>Learning Continuous Implicit Field with Local Distance Indicator for Arbitrary-Scale Point Cloud Upsampling
+                </papertitle>
+              </a>
+              <br>
+              Shujuan Li*, <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, 
+              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+              <br>
+              <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2024
+              <br>
+              <a href="https://lisj575.github.io/APU-LDI/">project page</a> |             
+              <a href="https://arxiv.org/abs/2312.15133">arXiv</a> |
+              <a href="https://arxiv.org/abs/2312.15133">code</a>
+      
+              <p align="justify", style="font-size:13px">We propose to learn a Local Distance Indicator as local priors to guide  arbitrary-scale point cloud upsampling.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="NeuSurf_stop()" onmouseover="NeuSurf_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="NeuSurf" style="opacity: 0;">
+                  <img src='media/NeuSurf_after.png' width="225", height="120">
+                </div>
+                <img src="media/NeuSurf_before.png" width="225", height="120">
+      
+              </div>
+      
+              <script type="text/javascript">
+                function NeuSurf_start() {
+                  document.getElementById('NeuSurf').style.opacity = "1";
+                }
+                function NeuSurf_stop() {
+                  document.getElementById('NeuSurf').style.opacity = "0";
+                }
+                NeuSurf_stop()
+              </script>
+            </td>
+      
+            <td width="65%" valign="top">
+              <a href="https://alvin528.github.io/NeuSurf/">
+                <papertitle>NeuSurf: On-Surface Priors for Neural Surface Reconstruction from Sparse Input Views
+                </papertitle>
+              </a>
+              <br>
+              Han Huang, Yulun Wu, <strong>Junsheng Zhou</strong>, Ge Gao, Ming Gu,
+              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>
+              <br>
+              <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2024
+              <br>
+              <a href="https://alvin528.github.io/NeuSurf/">project page</a> |             
+              <a href="https://arxiv.org/pdf/2312.13977.pdf">arXiv</a> |
+              <a href="https://arxiv.org/pdf/2312.13977.pdf">code</a>
+      
+              <p align="justify", style="font-size:13px">We design a sparse view reconstruction framework that leverages on-surface priors from explicit points to achieve highly faithful surface reconstruction.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
 	      
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
           <tr onmouseout="VP2P_stop()" onmouseover="VP2P_start()">
-            <td width="25%">
+            <td width="28%">
               <div class="one">
                 <div class="two" id="VP2P" style="opacity: 0;">
                   <video width="225" muted="" autoplay="" loop="">
@@ -166,7 +306,7 @@
             </td>
       
             <td width="65%" valign="top">
-              <a href="">
+              <a href="https://github.com/junshengzhou/VP2P-Match">
                 <papertitle>Differentiable Registration of Images and LiDAR Point Clouds with VoxelPoint-to-Pixel Matching
                 </papertitle>
               </a>
@@ -190,7 +330,7 @@
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
           <tr onmouseout="ICCVUDF_stop()" onmouseover="ICCVUDF_start()">
-            <td width="25%">
+            <td width="28%">
               <div class="one">
                 <div class="two" id="ICCVUDF" style="opacity: 0;">
                   <img src='media/iccv23udf_before.gif' width="225">
@@ -234,7 +374,7 @@
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
           <tr onmouseout="LSA_stop()" onmouseover="LSA_start()">
-            <td width="25%">
+            <td width="28%">
               <div class="one">
                 <div class="two" id="LSA" style="opacity: 0;">
                   <img src='media/GradientConsistency_before.gif' width="225">
@@ -278,7 +418,7 @@
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
           <tr onmouseout="SMI_stop()" onmouseover="SMI_start()">
-            <td width="25%">
+            <td width="28%">
               <div class="one">
                 <div class="two" id="SMI" style="opacity: 0;">
                   <img src='media/smi_before.png' width="225">
@@ -322,7 +462,7 @@
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
           <tr onmouseout="neaf_stop()" onmouseover="neaf_start()">
-            <td width="25%">
+            <td width="28%">
               <div class="one">
                 <div class="two" id="neaf" style="opacity: 0;">
                   <img src='media/neaf_before.gif' width="225">
@@ -366,7 +506,7 @@
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
             <tr onmouseout="capudf_stop()" onmouseover="capudf_start()">
-              <td width="25%">
+              <td width="28%">
                 <div class="one">
                   <div class="two" id="capudf_shape" style="opacity: 0;">
                     <img src='media/capudf_before.png' width="225">
@@ -408,7 +548,7 @@
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
             <tr onmouseout="attriflow_stop()" onmouseover="attriflow_start()">
-              <td width="25%">
+              <td width="28%">
                 <div class="one">
                   <div class="two" id="attriflow_shape" style="opacity: 0;">
                     <img src='media/attriflow_before.gif' width="225">
@@ -452,7 +592,7 @@
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
             <tr onmouseout="oae_stop()" onmouseover="oae_start()">
-              <td width="25%">
+              <td width="28%">
                 <div class="one">
                     <div class="two" id="oae_shape" style="opacity: 0;">
                         <video width="225" muted="" autoplay="" loop="">
@@ -482,7 +622,7 @@
                 <strong>Junsheng Zhou*</strong>, <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao"> Xin Wen*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>,
                 <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://www.gaoyue.org/"> Yue Gao</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
                 <br>
-                <em>arXiv 2022.</em>
+                <em>arXiv</b></em>, 2022
                 <br>
                 <a href="https://junshengzhou.github.io/3D-OAE/">project page</a> |             
                 <a href="https://arxiv.org/pdf/2203.14084.pdf">arXiv</a> |
@@ -518,8 +658,9 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>Academic Services</heading>
                 <ul>
-
-                  <li> <strong>Conference Reviewer</strong>: NeurIPS, CVPR, ICCV, ICLR, BMVC
+                  <li> <strong>Program Committee</strong>: ICLR-24, IJCAI-24, WWW-24
+                  </li>
+                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23, CVPR-23/24, ICCV-23, ECCV-24, BMVC-23
                   </li>
                   <li> <strong>Journal Reviewer</strong>: CVMJ
                   </li>
@@ -551,7 +692,7 @@
                 <font size="2">
                 template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
                 <br>
-                Last updated: Oct 2023
+                Last updated: Jan 2024
                 <br>
                 
               </font>
