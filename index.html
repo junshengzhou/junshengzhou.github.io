@@ -55,7 +55,7 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>News</heading>
                 <ul>
-                  <li><strong>04/2024:</strong> The extension of <a href="https://junshengzhou.github.io/CAP-UDF/">CAP-UDF</a> on implicit representation is accepted to <b>TPAMI 2024</b>.
+                  <li><strong>04/2024:</strong> The extension of <a href="https://junshengzhou.github.io/CAP-UDF/">CAP-UDF</a> on implicit representations is accepted to <b>TPAMI 2024</b>.
                   <li><strong>03/2024:</strong> Our paper <a href="https://weiqi-zhang.github.io/UDiFF/">UDiFF</a> on UDF-based 3D generative models is accepted to <b>CVPR 2024</b>.
                   <li><strong>03/2024:</strong> I will co-organize workshop <a href="https://emai-workshop.github.io/">EMbodied AI: Trends, Challenges, and Opportunities</a> in <b>ICIP 2024</b>.
 
@@ -113,6 +113,97 @@
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
+          <tr onmouseout="UDiFF_stop()" onmouseover="UDiFF_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="UDiFF" style="opacity: 0;">
+                  <video width="225" muted="" autoplay="" loop="">
+                    <source src="media/UDiFF_after_2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <img src="media/UDiFF_before.png" width="225">
+        
+              </div>
+        
+              <script type="text/javascript">
+                function UDiFF_start() {
+                  document.getElementById('UDiFF').style.opacity = "1";
+                }
+                function UDiFF_stop() {
+                  document.getElementById('UDiFF').style.opacity = "0";
+                }
+                UDiFF_stop()
+              </script>
+            </td>
+        
+            <td width="65%" valign="top">
+              <a href="https://weiqi-zhang.github.io/UDiFF/">
+                <papertitle>UDiFF: Generating Conditional Unsigned Distance Fields with Optimal Wavelet Diffusion
+                </papertitle>
+              </a>
+              <br>
+              <strong>Junsheng Zhou*</strong>, Weiqi Zhang*, <a href="https://mabaorui.github.io/"> Baorui Ma</a>, Kanle Shi, 
+              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+              <br>
+              <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2024
+              <br>
+              <a href="https://weiqi-zhang.github.io/UDiFF/">project page</a> |             
+              <a href="https://arxiv.org/abs/2404.06851">arXiv</a> |
+              <a href="https://github.com/weiqi-zhang/UDiFF">code</a>
+        
+              <p align="justify", style="font-size:13px">UDiFF is a 3D diffusion model for unsigned distance fields (UDFs) which is capable to generate textured 3D shapes with open surfaces from text conditions or unconditionally.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="cappami_stop()" onmouseover="cappami_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="cappami_shape" style="opacity: 0;">
+                  <img src='media/cappami_before.png' width="225">
+                </div>
+                <img src="media/cappami_after.png" width="225">
+        
+              </div>
+              <script type="text/javascript">
+                function cappami_start() {
+                  document.getElementById('cappami_shape').style.opacity = "1";
+                }
+                function cappami_stop() {
+                  document.getElementById('cappami_shape').style.opacity = "0";
+                }
+                cappami_stop()
+              </script>
+            </td>
+        
+            <td width="65%" valign="top">
+              <a href="https://junshengzhou.github.io/CAP-UDF/">
+                <papertitle>CAP-UDF: Learning Unsigned Distance Functions Progressively from Raw Point Clouds with Consistency-Aware Field Optimization</papertitle>
+              </a>
+              <br>
+              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Shujuan Li <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+              <br>
+              <em>IEEE Transactions on Pattern Analysis and Machine Intelligence <b>(TPAMI)</b></em>, 2024
+              <br>
+              <a href="https://junshengzhou.github.io/CAP-UDF/">project page</a> |             
+              <a href="https://ieeexplore.ieee.org/document/10506631">IEEE Xplore</a> | <a href="https://arxiv.org/pdf/2210.02757.pdf">arXiv</a> |
+              <a href="https://github.com/junshengzhou/CAP-UDF">code</a>
+        
+              <p align="justify", style="font-size:13px">We present CAP-UDF to represent shapes and scenes with arbitrary architecture by learning a Consistency-Aware unsigned distance function Progressively.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
           <tr onmouseout="uni3d_stop()" onmouseover="uni3d_start()">
             <td width="28%">
               <div class="one">
@@ -154,6 +245,55 @@
           </tr>
           </tbody>
         </table>
+
+
+                  
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="oae_stop()" onmouseover="oae_start()">
+            <td width="28%">
+              <div class="one">
+                  <div class="two" id="oae_shape" style="opacity: 0;">
+                      <video width="225" muted="" autoplay="" loop="">
+                        <source src="media/3doae_after.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                  </div>
+                <img src="media/3doae_before.png" width="225">
+                <td width="65%" valign="top">
+                  <a href="https://junshengzhou.github.io/3D-OAE/">
+                    <papertitle>3D-OAE: Occlusion Auto-Encoders for Self-Supervised Learning on Point Clouds</papertitle>
+                  </a>
+                  <br>
+                  <strong>Junsheng Zhou*</strong>, <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao"> Xin Wen*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>,
+                  <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://www.gaoyue.org/"> Yue Gao</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                  <br>
+                  <em>IEEE International Conference on Robotics and Automation <b>(ICRA)</b></em>, 2024  (<strong><span style="color:#ff0000;">Oral</span></strong>)
+                  <br>
+                  <a href="https://junshengzhou.github.io/3D-OAE/">project page</a> |             
+                  <a href="https://arxiv.org/pdf/2203.14084.pdf">arXiv</a> |
+                  <a href="https://github.com/junshengzhou/3D-OAE">code</a>
+        
+                  <p align="justify", style="font-size:13px">We present 3D-OAE, a novel self-supervised point cloud representation learning framework which is highly efficient and can be further transferred to various downstream tasks.
+                  </p>
+                </td>
+              </div>
+              <script type="text/javascript">
+                function oae_start() {
+                  document.getElementById('oae_shape').style.opacity = "1";
+                }
+                function oae_stop() {
+                  document.getElementById('oae_shape').style.opacity = "0";
+                }
+                oae_stop()
+              </script>
+            </td>
+
+
+          </tr>
+          </tbody>
+        </table>
+
 
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
@@ -603,52 +743,7 @@
             </tbody>
           </table>
 
-          
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-            <tr onmouseout="oae_stop()" onmouseover="oae_start()">
-              <td width="28%">
-                <div class="one">
-                    <div class="two" id="oae_shape" style="opacity: 0;">
-                        <video width="225" muted="" autoplay="" loop="">
-                          <source src="media/3doae_after.mp4" type="video/mp4">
-                          Your browser does not support the video tag.
-                        </video>
-                    </div>
-                  <img src="media/3doae_before.png" width="225">
 
-                </div>
-                <script type="text/javascript">
-                  function oae_start() {
-                    document.getElementById('oae_shape').style.opacity = "1";
-                  }
-                  function oae_stop() {
-                    document.getElementById('oae_shape').style.opacity = "0";
-                  }
-                  oae_stop()
-                </script>
-              </td>
-  
-              <td width="65%" valign="top">
-                <a href="https://junshengzhou.github.io/3D-OAE/">
-                  <papertitle>3D-OAE: Occlusion Auto-Encoders for Self-Supervised Learning on Point Clouds</papertitle>
-                </a>
-                <br>
-                <strong>Junsheng Zhou*</strong>, <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao"> Xin Wen*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>,
-                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://www.gaoyue.org/"> Yue Gao</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-                <br>
-                <em>arXiv</b></em>, 2022
-                <br>
-                <a href="https://junshengzhou.github.io/3D-OAE/">project page</a> |             
-                <a href="https://arxiv.org/pdf/2203.14084.pdf">arXiv</a> |
-                <a href="https://github.com/junshengzhou/3D-OAE">code</a>
-
-                <p align="justify", style="font-size:13px">We present 3D-OAE, a novel self-supervised point cloud representation learning framework which is highly efficient and can be further transferred to various downstream tasks.
-                </p>
-              </td>
-            </tr>
-            </tbody>
-          </table>
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -673,9 +768,12 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>Academic Services</heading>
                 <ul>
+                  <li>
+                    <strong>Co-organizer</strong>: "EMbodied AI: Trends, Challenges, and Opportunities" in ICIP-24 
+                  </li>
                   <li> <strong>Program Committee Member</strong>: ICLR-24, IJCAI-24, WWW-24
                   </li>
-                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23, CVPR-23/24, ICCV-23, ECCV-24, BMVC-23
+                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23, ICML-24, CVPR-23/24, ICCV-23, ECCV-24, BMVC-23/24
                   </li>
                   <li> <strong>Journal Reviewer</strong>: CVMJ
                   </li>
@@ -707,7 +805,7 @@
                 <font size="2">
                 template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
                 <br>
-                Last updated: Jan 2024
+                Last updated: Apr 2024
                 <br>
                 
               </font>
