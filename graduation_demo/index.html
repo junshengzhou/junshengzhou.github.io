@@ -104,8 +104,8 @@
      
      <table class="dataintable">
      <tr>
-     <th style="width:33.3%;">重建结果</th>
-     <th style="width:33.3%;">真实结果</th>
+     <th style="width:33.3%;">模型一重建结果</th>
+     <th style="width:33.3%;">模型二重建结果</th>
      </tr>
      
        <td>
@@ -152,7 +152,7 @@
         
         <table class="dataintable">
         <tr>
-        <th style="width:100%;">场景一重建结果</th>
+        <th style="width:100%;">Lounge场景重建结果</th>
         </tr>
         
         <tr>
@@ -171,7 +171,7 @@
         </tr>
 
         <tr>
-          <th style="width:100%;">场景一真实结果</th>
+          <th style="width:100%;">Stonewall场景重建结果</th>
           </tr>
           
           <tr>
@@ -179,7 +179,7 @@
               <model-viewer
               bounds="tight"
               enable-pan
-              src="./objects/lounge.glb"
+              src="./objects/stonewall.glb"
               ar
               ar-modes="webxr scene-viewer quick-look"
               camera-controls
@@ -188,59 +188,6 @@
               />
             </td>
           </tr>
-
-        <!-- <tr>
-          <td>
-            <model-viewer
-            bounds="tight"
-            enable-pan
-            src="./objects/stonewall.glb"
-            ar
-            ar-modes="webxr scene-viewer quick-look"
-            camera-controls
-            shadow-intensity="1"
-            camera-orbit="auto auto 180deg"
-            />
-          </td>
-        </tr> -->
-        
-        <tr>
-          <th style="width:100%;">场景二重建结果</th>
-          </tr>
-          
-          <tr>
-            <td>
-              <model-viewer
-              bounds="tight"
-              enable-pan
-              src="./objects/lounge.glb"
-              ar
-              ar-modes="webxr scene-viewer quick-look"
-              camera-controls
-              shadow-intensity="1"
-              camera-orbit="auto auto 180deg"
-              />
-            </td>
-          </tr>
-  
-          <tr>
-            <th style="width:100%;">场景二真实结果</th>
-            </tr>
-            
-            <tr>
-              <td>
-                <model-viewer
-                bounds="tight"
-                enable-pan
-                src="./objects/lounge.glb"
-                ar
-                ar-modes="webxr scene-viewer quick-look"
-                camera-controls
-                shadow-intensity="1"
-                camera-orbit="auto auto 180deg"
-                />
-              </td>
-            </tr>
 
 
         </table>
@@ -269,7 +216,7 @@
            <model-viewer
            bounds="tight"
            enable-pan
-           src="./objects/car2.glb"
+           src="./objects/srb/ndf/gargoyle_ndf.glb"
            ar
      auto-rotate
            ar-modes="webxr scene-viewer quick-look"
@@ -282,7 +229,7 @@
            <model-viewer
            bounds="tight"
            enable-pan
-           src="./objects/car1.glb"
+           src="./objects/srb/capudf/gargoyle_ours20.glb"
            ar
      auto-rotate
            ar-modes="webxr scene-viewer quick-look"
@@ -301,7 +248,7 @@
               <model-viewer
               bounds="tight"
               enable-pan
-              src="./objects/car2.glb"
+              src="./objects/srb/sap/anchor_SAP.glb"
               ar
         auto-rotate
               ar-modes="webxr scene-viewer quick-look"
@@ -314,7 +261,7 @@
               <model-viewer
               bounds="tight"
               enable-pan
-              src="./objects/car1.glb"
+              src="./objects/srb/ndf/anchor_ndf.glb"
               ar
         auto-rotate
               ar-modes="webxr scene-viewer quick-look"
