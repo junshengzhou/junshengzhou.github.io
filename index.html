@@ -33,10 +33,10 @@
               <p style="text-align:center">
                 <name>Junsheng Zhou | 周俊昇</name>
               </p>
-              <p>I am currently a Master student (since fall, 2021) and an incoming Ph.D student in <a href="https://www.thss.tsinghua.edu.cn/">School of Software</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, advised by Prof. <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>.
+              <p>I am currently a Ph.D. student in <a href="https://www.thss.tsinghua.edu.cn/">School of Software</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, advised by Prof. <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>.
               </p>
               <p>
-                My research interests lie in the area of 3D computer vision and grapics, especially in 3D reconstruction, 3D foundation models, cross-modal learning and generative models. 
+                My research interests lie in the area of 3D computer vision and grapics, especially in 3D reconstruction, generative models, 3D foundation models and cross-modal learning. 
               </p>
               <p style="text-align:center">
                 <a href="mailto:zhoujs21@mails.tsinghua.edu.cn">Email</a> &nbsp/&nbsp
@@ -55,6 +55,7 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>News</heading>
                 <ul>
+                  <li><strong>06/2024:</strong> Our paper <a href="https://mabaorui.github.io/Noise2NoiseMapping/">FastN2N</a> on fast learning of implicit 3D representations is accepted to <b>TPAMI 2024</b>.
                   <li><strong>04/2024:</strong> The extension of <a href="https://junshengzhou.github.io/CAP-UDF/">CAP-UDF</a> on implicit representations is accepted to <b>TPAMI 2024</b>.
                   <li><strong>03/2024:</strong> Our paper <a href="https://weiqi-zhang.github.io/UDiFF/">UDiFF</a> on UDF-based 3D generative models is accepted to <b>CVPR 2024</b>.
                   <li><strong>03/2024:</strong> I will co-organize workshop <a href="https://emai-workshop.github.io/">EMbodied AI: Trends, Challenges, and Opportunities</a> in <b>ICIP 2024</b>.
@@ -110,6 +111,48 @@
             </td>
           </tr>
         </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="fastn2n_stop()" onmouseover="fastn2n_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="fastn2n_shape" style="opacity: 0;">
+                  <img src='media/FastN2N_after.gif' width="225">
+                </div>
+                <img src="media/FastN2N_before.png" width="225">
+        
+              </div>
+              <script type="text/javascript">
+                function fastn2n_start() {
+                  document.getElementById('fastn2n_shape').style.opacity = "1";
+                }
+                function fastn2n_stop() {
+                  document.getElementById('fastn2n_shape').style.opacity = "0";
+                }
+                fastn2n_stop()
+              </script>
+            </td>
+        
+            <td width="65%" valign="top">
+              <a href="https://mabaorui.github.io/Noise2NoiseMapping/">
+                <papertitle>Fast Learning of Signed Distance Functions from Noisy Point Clouds via Noise to Noise Mapping</papertitle>
+              </a>
+              <br>
+              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+              <br>
+              <em>IEEE Transactions on Pattern Analysis and Machine Intelligence <b>(TPAMI)</b></em>, 2024
+              <br>
+              <a href="https://mabaorui.github.io/Noise2NoiseMapping/">project page</a> |             
+              <a href="https://ieeexplore.ieee.org/document/10561582">IEEE Xplore</a> | <a href="https://arxiv.org/abs/2407.14225">arXiv</a> |
+              <a href="https://github.com/mabaorui/Noise2NoiseMapping">code</a>
+        
+              <p align="justify", style="font-size:13px">We present a fast learning framework capable of inferring signed distance functions from noisy shapes within one minute through noise-to-noise mapping.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
@@ -771,11 +814,11 @@
                   <li>
                     <strong>Co-organizer</strong>: "EMbodied AI: Trends, Challenges, and Opportunities" in ICIP-24 
                   </li>
-                  <li> <strong>Program Committee Member</strong>: ICLR-24, IJCAI-24, WWW-24
+                  <li> <strong>Program Committee Member</strong>: ICLR-24, IJCAI-24, WWW-24, AAAI-25
                   </li>
-                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23, ICML-24, CVPR-23/24, ICCV-23, ECCV-24, BMVC-23/24
+                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23, ICML-24, CVPR-23/24, ICCV-23, SIGGRAPH Asia-24, ECCV-24, BMVC-23/24
                   </li>
-                  <li> <strong>Journal Reviewer</strong>: CVMJ
+                  <li> <strong>Journal Reviewer</strong>: CVMJ, ToG
                   </li>
 
                 </ul>
@@ -805,7 +848,7 @@
                 <font size="2">
                 template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
                 <br>
-                Last updated: Apr 2024
+                Last updated: Aug 2024
                 <br>
                 
               </font>
