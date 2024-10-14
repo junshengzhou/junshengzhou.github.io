@@ -55,12 +55,14 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>News</heading>
                 <ul>
+                  <!--<li><strong>09/2024:</strong> Three papers on generative Gaussian modeling (DiffGS), scene generation (DeepPriorAssembly) and sparse view Gaussian learning (Binocular3DGS) are accepted to <b>NeurIPS 2024</b>.-->
+                  <li><strong>09/2024:</strong> <a href="https://junshengzhou.github.io">DiffGS</a>, <a href="https://junshengzhou.github.io">DeepPriorAssembly</a> and <a href="https://junshengzhou.github.io">Binocular3DGS</a> are accepted to <b>NeurIPS 2024</b>.
                   <li><strong>06/2024:</strong> Our paper <a href="https://mabaorui.github.io/Noise2NoiseMapping/">FastN2N</a> on fast learning of implicit 3D representations is accepted to <b>TPAMI 2024</b>.
                   <li><strong>04/2024:</strong> The extension of <a href="https://junshengzhou.github.io/CAP-UDF/">CAP-UDF</a> on implicit representations is accepted to <b>TPAMI 2024</b>.
                   <li><strong>03/2024:</strong> Our paper <a href="https://weiqi-zhang.github.io/UDiFF/">UDiFF</a> on UDF-based 3D generative models is accepted to <b>CVPR 2024</b>.
                   <li><strong>03/2024:</strong> I will co-organize workshop <a href="https://emai-workshop.github.io/">EMbodied AI: Trends, Challenges, and Opportunities</a> in <b>ICIP 2024</b>.
 
-                  <li><strong>02/2024:</strong> Our paper <a href="https://github.io">3D-OAE</a> on 3D foundation models is accepted to <b>ICRA 2024</b> for <strong><span style="color:#ff0000;">Oral</span></strong> presentation.
+                  <li><strong>02/2024:</strong> Our paper <a href="https://junshengzhou.github.io/3D-OAE/">3D-OAE</a> on 3D foundation models is accepted to <b>ICRA 2024</b> for <strong><span style="color:#ff0000;">Oral</span></strong> presentation.
 
                   <li><strong>01/2024:</strong> Our work <a href="https://github.com/baaivision/Uni3D">Uni3D</a> on scaling up 3D foundation models is accepted to <b>ICLR 2024</b> <strong><span style="color:#ff0000;">(Spotlight)</span></strong>.
                     <!-- <li><strong>01/2024:</strong> Our work <a href="">Uni3D</a> is accepted to <b>ICLR 2024</b> <strong><span style="color:#ff0000;">(Spotlight)</span></strong>. -->
@@ -71,7 +73,7 @@
                   </li>
                   <li><strong>08/2023:</strong> Our paper <a href="https://github.com/junshengzhou/LevelSetUDF/">LevelSetUDF</a> on neural implicit representations is accepted to <b>ICCV 2023</b>.
                   </li>
-                  <li><strong>06/2023:</strong> One paper on surface reconstruction that I advised is accepted to <b>SMI 2023</b> and <b>C&G 2023</b>.
+                  <!-- <li><strong>06/2023:</strong> One paper on surface reconstruction that I advised is accepted to <b>SMI 2023</b> and <b>C&G 2023</b>.-->
                   </li>
                   <li><strong>03/2023:</strong> Our paper <a href="https://github.com/mabaorui/TowardsBetterGradient/">LSA-SDF</a> on implicit representation is accepted to <b>CVPR 2023</b>.
                   </li>
@@ -111,6 +113,141 @@
             </td>
           </tr>
         </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="diffgs_stop()" onmouseover="diffgs_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="diffgs" style="opacity: 0;">
+                  <video width="225" muted="" autoplay="" loop="">
+                    <source src="media/diffgs_after.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <img src="media/diffgs_before.png" width="225">
+        
+              </div>
+              <script type="text/javascript">
+                function diffgs_start() {
+                  document.getElementById('diffgs').style.opacity = "1";
+                }
+                function diffgs_stop() {
+                  document.getElementById('diffgs').style.opacity = "0";
+                }
+                diffgs_stop()
+              </script>
+            </td>
+        
+            <td width="65%" valign="top">
+              <a href="https://junshengzhou.github.io/DiffGS/">
+                <papertitle>DiffGS: Functional Gaussian Splatting Diffusion</papertitle>
+              </a>
+              <br>
+              <strong>Junsheng Zhou*</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>
+              <br>
+              <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
+              <br>
+              <a href="">project page</a> |             
+              <a href="">arXiv</a> |
+              <a href="">code</a>
+        
+              <p align="justify", style="font-size:13px">DiffGS is a powerful and efficient 3D generative model capable of generating Gaussian primitives in arbitrary numbers, with a functional disentanglement of Gaussian Splatting.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="dpa_stop()" onmouseover="dpa_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="dpa" style="opacity: 0;">
+                  <video width="225" muted="" autoplay="" loop="">
+                    <source src="media/dpa_after.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <img src="media/dpa_before.png" width="225">
+        
+              </div>
+              <script type="text/javascript">
+                function dpa_start() {
+                  document.getElementById('dpa').style.opacity = "1";
+                }
+                function dpa_stop() {
+                  document.getElementById('dpa').style.opacity = "0";
+                }
+                dpa_stop()
+              </script>
+            </td>
+        
+            <td width="65%" valign="top">
+              <a href="https://junshengzhou.github.io/DeepPriorAssembly/">
+                <papertitle>Zero-Shot Scene Reconstruction from Single Images with Deep Prior Assembly</papertitle>
+              </a>
+              <br>
+              <strong>Junsheng Zhou</strong>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+              <br>
+              <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
+              <br>
+              <a href="">project page</a> |             
+              <a href="">arXiv</a> |
+              <a href="">code</a>
+        
+              <p align="justify", style="font-size:13px">We propose to assembles diverse deep priors from large models for scene generation from single images in a zero shot manner.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="Binocular3DGS_stop()" onmouseover="Binocular3DGS_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="Binocular3DGS" style="opacity: 0;">
+                  <video width="225" muted="" autoplay="" loop="">
+                    <source src="media/binoculargs_after.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <img src="media/binoculargs_before.png" width="225">
+        
+              </div>
+              <script type="text/javascript">
+                function Binocular3DGS_start() {
+                  document.getElementById('Binocular3DGS').style.opacity = "1";
+                }
+                function Binocular3DGS_stop() {
+                  document.getElementById('Binocular3DGS').style.opacity = "0";
+                }
+                Binocular3DGS_stop()
+              </script>
+            </td>
+        
+            <td width="65%" valign="top">
+              <a href="https://hanl2010.github.io/Binocular3DGS/">
+                <papertitle>Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis</papertitle>
+              </a>
+              <br>
+              Liang Han, <strong>Junsheng Zhou</strong>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+              <br>
+              <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
+              <br>
+              <a href="">project page</a> |             
+              <a href="">arXiv</a> |
+              <a href="">code</a>
+        
+              <p align="justify", style="font-size:13px">We propose a sparse view 3D Gaussian Splatting framework which explores the self supervisions inherent in the binocular stereo consistency.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
@@ -186,7 +323,7 @@
                 </papertitle>
               </a>
               <br>
-              <strong>Junsheng Zhou*</strong>, Weiqi Zhang*, <a href="https://mabaorui.github.io/"> Baorui Ma</a>, Kanle Shi, 
+              <strong>Junsheng Zhou*</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>, Kanle Shi, 
               <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
               <br>
               <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2024
@@ -337,7 +474,47 @@
           </tbody>
         </table>
 
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+          <tr onmouseout="MusicUDF_stop()" onmouseover="MusicUDF_start()">
+            <td width="28%">
+              <div class="one">
+                <div class="two" id="MusicUDF" style="opacity: 0;">
+                  <img src='media/MusicUDF_before.png' width="225">
+                </div>
+                <img src="media/MusicUDF_after.png" width="225">
 
+              </div>
+              <script type="text/javascript">
+                function MusicUDF_start() {
+                  document.getElementById('MusicUDF').style.opacity = "1";
+                }
+                function MusicUDF_stop() {
+                  document.getElementById('MusicUDF').style.opacity = "0";
+                }
+                MusicUDF_stop()
+              </script>
+            </td>
+
+            <td width="65%" valign="top">
+              <a href="">
+                <papertitle>MuSic-UDF: Learning Multi-Scale dynamic grid representation for high-fidelity surface reconstruction from point clouds</papertitle>
+              </a>
+              <br>
+              Chuan Jin, <a href="https://sai.jlu.edu.cn/info/1094/3443.htm"> Tieru Wu</a>, <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <strong>Junsheng Zhou</strong>
+              <br>
+              <em>Computers & Graphics  <b>(C&G)</b></em>, 2023
+              <br>
+              <a href="https://www.sciencedirect.com/science/article/abs/pii/S0097849324002164">project page</a> |             
+              <a href="">arXiv</a> |
+              <a href="">code</a>
+
+              <p align="justify", style="font-size:13px">A research project on 3D vision at Jilin University that I served as the advisor.
+              </p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
           <tbody>
@@ -509,7 +686,7 @@
                 </papertitle>
               </a>
               <br>
-              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Wenyuan Zhang, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>,
+              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://wen-yuan-zhang.github.io/">Wenyuan Zhang</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>,
               <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
               <br>
               <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2023  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
@@ -646,7 +823,7 @@
               &nbsp &nbsp | &nbsp &nbsp 
               <em>Computers & Graphics  <b>(C&G)</b></em>, 2023
               <br>
-              <a href="">project page</a> |             
+              <a href="https://www.sciencedirect.com/science/article/abs/pii/S0097849323001097">project page</a> |             
               <a href="">arXiv</a> |
               <a href="">code</a>
 
@@ -816,7 +993,7 @@
                   </li>
                   <li> <strong>Program Committee Member</strong>: ICLR-24, IJCAI-24, WWW-24, AAAI-25
                   </li>
-                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23, ICML-24, CVPR-23/24, ICCV-23, SIGGRAPH Asia-24, ECCV-24, BMVC-23/24
+                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23/24, ICML-24, CVPR-23/24, ICCV-23, SIGGRAPH Asia-24, ECCV-24, BMVC-23/24, AISTATS-25
                   </li>
                   <li> <strong>Journal Reviewer</strong>: CVMJ, ToG, TIP
                   </li>
@@ -848,7 +1025,7 @@
                 <font size="2">
                 template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
                 <br>
-                Last updated: Aug 2024
+                Last updated: Oct 2024
                 <br>
                 
               </font>
