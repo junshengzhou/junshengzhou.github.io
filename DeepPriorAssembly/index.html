@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Zero-Shot Scene Reconstruction from Single Images with Deep Prior Assembly">
+  <meta name="keywords" content="DeepPriorAssembly">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepPriorAssembly</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- <script type="text/javascript" src="./gb3d_bundle.js"></script> -->
+  
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://junshengzhou.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://junshengzhou.github.io/DiffGS">
+            DiffGS
+          </a>
+          <a class="navbar-item" href="https://weiqi-zhang.github.io/UDiFF/">
+            UDiFF
+          </a>
+          <a class="navbar-item" href="https://github.com/baaivision/Uni3D">
+            Uni3D
+          </a>
+          <a class="navbar-item" href="https://github.com/junshengzhou/CAP-UDF">
+            CAP-UDF
+          </a>
+          <a class="navbar-item" href="https://github.com/junshengzhou/LevelSetUDF">
+            LevelSetUDF
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Zero-Shot Scene Reconstruction from Single Images with Deep Prior Assembly</h1>
+          <p style="line-height: 0.5;">&nbsp;</p>
+          <div class="column is-full_width">
+            <h2 class="title is-4">NeurIPS 2024</h2>
+          </div>
+          <p style="line-height: 0.5;">&nbsp;</p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://junshengzhou.github.io/">Junsheng Zhou</a><sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a><sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://h312h.github.io/">Zhizhong Han</a><sup>2</sup>
+            </span>
+          </div>
+          <p style="line-height: 1;">&nbsp;</p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>School of Software, Tsinghua University,</span>
+            <span class="author-block"><sup>2</sup>Wayne State University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/junshengzhou/DeepPriorAssembly"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="columns">
+        <h2 class="title is-3" style="margin-top: -37px">
+        <img src="./resources/illustration.png" class="center"></h2>
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+    <!--<div class="content has-text-centered">
+      <video id="replay-video"
+             autoplay
+             controls
+             muted
+             preload
+             playsinline
+             loop
+             width="100%">
+        <source src="./resources/comparison.mp4"
+                type="video/mp4">
+      </video>
+    </div>-->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large language and vision models have been leading a revolution in visual computing. By greatly scaling up sizes of data and model parameters, the large models learn deep priors which lead to remarkable performance in various tasks. In this work, we present deep prior assembly, a novel framework that assembles diverse deep priors from large models for scene reconstruction from single images in a zero-shot manner. We show that this challenging task can be done without extra knowledge but just simply generalizing one deep prior in one sub-task. To this end, we introduce novel methods related to poses, scales, and occlusion parsing which are keys to enable deep priors to work together in a robust way.Deep prior assembly does not require any 3D or 2D data-driven training in the task and demonstrates superior performance in generalizing priors to open-world scenes. We conduct evaluations on various datasets, and report analysis, numerical and visual comparisons with the latest methods to show our superiority.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- <h2 class="subtitle has-text-centered">
+  <strong>DeepPriorAssembly</strong> learns a continuous UDF to represent shapes with arbitary architecture.
+</h2> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+
+        <img src="./resources/overview.png" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+             <b>Overview of DeepPriorAssembly.</b> Given a single image of a 3D scene, we detect the instances and segment them with <b><i>Grounded-SAM</i></b>. After normalizing the size and center for the instances, we attempt to amend the quality of the instance images by enhancing and inpainting them. Here, we take a sofa in the image for example. Leveraging the <b><i>Stable-Diffusion</i></b> model, we generate a set of candidate images with the image-to-image generation and a text prompt of the instance category predicted by Grounded-SAM. We then filter out the bad generation samples with <b><i>Open-CLIP</i></b> by evaluating the cosine similarity between the generated instances and original one. After that, we generate multiple 3D model proposals for this instance with <b><i>Shap·E</i></b> from the Top-<i>K</i> generated instance images. Additionally, we estimate the depth of the origin input image with <b><i>Omnidata</i></b> as a 3D geometry prior. To estimate the layout, we propose an approach to optimize the location, orientation and size for each 3D proposal by matching it with the estimated segmentation masks and the depths (the <b><span style="color: red;">red ★</span></b> for the example sofa). Finally, we choose the 3D model proposal with minimal matching error as the final prediction of this instance, and the final scene is generated by combining the generated 3D models for all detected instances.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Visual Comparisons Under Synthesis and Real-world Scenes</h2>
+
+        <div class="content has-text-justified">
+          <p>
+             
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="1000%">
+            <source src="./resources/comparison.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">More Comparisons under 3D-Front</h2>
+
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/3dfront.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="column is-full-width">
+          <!-- <h3 class="title is-4">DeepFashion3D</h3> -->
+          <img src="./resources/vis_3dfront.png" class="center">
+  
+        </div>
+
+        
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">More Comparisons under BlendSwap and Replica</h2>
+
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/blendswap.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="column is-full-width">
+          <!-- <h3 class="title is-4">DeepFashion3D</h3> -->
+          <img src="./resources/replica.png" class="center">
+  
+        </div>
+
+
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">More Comparisons under ScanNet</h2>
+
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/scannet.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="column is-full-width">
+          <!-- <h3 class="title is-4">DeepFashion3D</h3> -->
+          <img src="./resources/scannet.png" class="center">
+  
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{zhou2024DeepPriorAssembly,
+      title = {Zero-Shot Scene Reconstruction from Single Images with Deep Prior Assembly},
+      author = {Zhou, Junsheng and Liu, Yu-Shen and Han, Zhizhong},
+      booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+      year = {2024}
+  }
+  </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This webpage template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+</body>
+</html>
