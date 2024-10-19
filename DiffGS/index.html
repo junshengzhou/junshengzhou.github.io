@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DiffGS: Functional Gaussian Splatting Diffusion">
+  <meta name="keywords" content="DiffGS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DiffGS</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- <script type="text/javascript" src="./gb3d_bundle.js"></script> -->
+  
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://junshengzhou.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://weiqi-zhang.github.io/UDiFF/">
+            UDiFF
+          </a>
+          <a class="navbar-item" href="https://junshengzhou.github.io/DeepPriorAssembly">
+            DeepPriorAssembly
+          </a>
+          <a class="navbar-item" href="https://github.com/baaivision/Uni3D">
+            Uni3D
+          </a>
+          <a class="navbar-item" href="https://github.com/junshengzhou/CAP-UDF">
+            CAP-UDF
+          </a>
+          <a class="navbar-item" href="https://github.com/junshengzhou/LevelSetUDF">
+            LevelSetUDF
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">DiffGS: Functional Gaussian Splatting Diffusion</h1>
+          <p style="line-height: 0.5;">&nbsp;</p>
+          <div class="column is-full_width">
+            <h2 class="title is-4">NeurIPS 2024</h2>
+          </div>
+          <p style="line-height: 0.5;">&nbsp;</p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://junshengzhou.github.io/">Junsheng Zhou</a><sup>*</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://weiqi-zhang.github.io/">Weiqi Zhang</a><sup>*</sup>
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>
+            </span>
+          </div>
+          <p style="line-height: 1;">&nbsp;</p>
+          <div class="column is-full_width">
+            <h2 class="is-size-6">* Equal Contribution</h2>
+            <!-- <h2 class="is-size-6">(* equal contribution)  (<span>&#8224;</span> corresponding author)</h2> -->
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">School of Software, Tsinghua University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://weiqi-zhang.github.io/DiffGS/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered has-text-centered">
+        <div class="columns">
+          <h2 class="title is-3" style="margin-top: -30px">
+          <img src="./resources/illustration.png" class="center"></h2>
+        </div>
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            3D Gaussian Splatting (3DGS) has shown convincing performance in rendering speed and fidelity, yet the generation of Gaussian Splatting remains a challenge due to its discreteness and unstructural nature. In this work, we propose <b><i>DiffGS</i></b>, a general Gaussian generator based on latent diffusion models. DiffGS is a powerful and efficient 3D generative model which is capable of generating Gaussian primitives at arbitrary numbers for high-fidelity rendering with rasterization. The key insight is to disentangledly represent Gaussian Splatting via three novel functions to model Gaussian probabilities, colors and transforms. Through the novel disentangling of 3DGS, we represent the discrete and unstructual 3DGS with continuous Gaussian Splatting functions, where we then train a latent diffusion model with the target of generating these Gaussian Splatting functions both unconditionally and conditionally. Meanwhile, we introduce a discretization algorithm to extract Gaussians at arbitrary numbers from the generated functions via octree-guided sampling and optimization. We explore DiffGS for various tasks, including unconditional generation, conditional generation from text, image, and partial 3DGS, as well as Point-to-Gaussian generation. We believe that DiffGS provides a new direction for flexibly modeling and generating Gaussian Splatting.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- <h2 class="subtitle has-text-centered">
+  <strong>DeepPriorAssembly</strong> learns a continuous UDF to represent shapes with arbitary architecture.
+</h2> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+
+        <img src="./resources/overview.png" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+             <b>Overview of DiffGS.</b> <b><i>(a)</i></b> We disentangle the fitted 3DGS into three Gaussian Splatting Functions to model the Gaussian probability, colors and transforms. We then train a Gaussian VAE with a conditional latent diffusion model for generating these functions. <b><i>(b)</i></b> During generation, we first extract Gaussian geometry from the generated <b><i>GauPF</i></b>, followed by the <b><i>GauCF</i></b> and <b><i>GauTF</i></b> to obtain the Gaussian attributes.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">unconditional Generation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+             
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="1000%">
+            <source src="./resources/unconditional.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Text/Image-to-3D Generation</h2>
+
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/conditional.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <!-- <div class="column is-full-width">
+          <h3 class="title is-4">DeepFashion3D</h3>
+          <img src="./resources/condition_img.png" class="center">
+  
+        </div> -->
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+                
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Gaussian Completion</h2>
+
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/completion.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Point-to-Gaussian Generation</h2>
+
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/point2gaussian.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Visual Comparisons</h2>
+        </div>
+
+        <div class="column is-full-width">
+          <!-- <h3 class="title is-4">DeepFashion3D</h3> -->
+          <img src="./resources/shapenetchair.png" class="center">
+  
+        </div>
+
+
+        <br>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{DiffGS,
+      title = {DiffGS: Functional Gaussian Splatting Diffusion},
+      author = {Zhou, Junsheng and Zhang, Weiqi and Liu, Yu-Shen},
+      booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+      year = {2024}
+  }
+  </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This webpage template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+</body>
+</html>
