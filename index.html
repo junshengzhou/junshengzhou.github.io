@@ -20,6 +20,29 @@
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌠</text></svg>">
   <script src="script/functions.js"></script>
+  <script>
+    function showSelected() {
+      document.getElementById("selectedPublications").style.display = "block";
+      document.getElementById("allPublications").style.display = "none";
+      document.getElementById("selectedBtn").style.fontWeight = "bold";
+      document.getElementById("allBtn").style.fontWeight = "normal";
+    }
+    
+    function showAll() {
+      document.getElementById("selectedPublications").style.display = "none";
+      document.getElementById("allPublications").style.display = "block";
+      document.getElementById("selectedBtn").style.fontWeight = "normal";
+      document.getElementById("allBtn").style.fontWeight = "bold";
+    }
+    // // 强制刷新所有 allPublications 内的视频
+    // const videos = document.querySelectorAll('#allPublications video');
+    // videos.forEach(video => {
+    //   video.pause(); // 停止
+    //   video.currentTime = 0; // 回到开头
+    //   video.load(); // 重新加载
+    //   video.play(); // 重新播放（optional）
+    // });
+    </script>
 </head>
 
 
@@ -36,7 +59,7 @@
               <p>I am currently a Ph.D. student in <a href="https://www.thss.tsinghua.edu.cn/">School of Software</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>, advised by Prof. <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>.
               </p>
               <p>
-                My research interests lie in the area of 3D computer vision and grapics, especially in 3D reconstruction, generative models, 3D foundation models and cross-modal learning. 
+                My research interests lie in the area of 3D computer vision and grapics, especially in generative models, 3D foundation models, 3D reconstruction and cross-modal learning. 
               </p>
               <p style="text-align:center">
                 <a href="mailto:zhoujunsheng99@gmail.com">Email</a> &nbsp/&nbsp
@@ -55,8 +78,10 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <heading>News</heading>
                 <ul>
+                  <li><strong>03/2025:</strong> I am honored to be awarded the <b>Baidu Scholarship <strong><span style="color:#ff0000;">(10 Ph.D students worldwide)</span></strong>!</b>
+                  <li><strong>02/2025:</strong> Two papers (<a href="https://wen-yuan-zhang.github.io/NeRFPrior/">NeRFPrior</a> and <a href="">Bijective-SDF</a>) are accepted to <b>CVPR 2025</b> <strong><span style="color:#ff0000;">(1 Highlight)</span></strong>.
                   <!--<li><strong>09/2024:</strong> Three papers on generative Gaussian modeling (DiffGS), scene generation (DeepPriorAssembly) and sparse view Gaussian learning (Binocular3DGS) are accepted to <b>NeurIPS 2024</b>.-->
-                  <li><strong>09/2024:</strong> <a href="https://junshengzhou.github.io/DiffGS/">DiffGS</a>, <a href="https://junshengzhou.github.io/DeepPriorAssembly/">DeepPriorAssembly</a> and <a href="https://hanl2010.github.io/Binocular3DGS/">Binocular3DGS</a> are accepted to <b>NeurIPS 2024</b>.
+                  <li><strong>09/2024:</strong> Three papers (<a href="https://junshengzhou.github.io/DiffGS/">DiffGS</a>, <a href="https://junshengzhou.github.io/DeepPriorAssembly/">DeepPriorAssembly</a> and <a href="https://hanl2010.github.io/Binocular3DGS/">Binocular3DGS</a>) are accepted to <b>NeurIPS 2024</b>.
                   <li><strong>06/2024:</strong> Our paper <a href="https://mabaorui.github.io/Noise2NoiseMapping/">FastN2N</a> on fast learning of implicit 3D representations is accepted to <b>TPAMI 2024</b>.
                   <li><strong>04/2024:</strong> The extension of <a href="https://junshengzhou.github.io/CAP-UDF/">CAP-UDF</a> on implicit representations is accepted to <b>TPAMI 2024</b>.
                   <li><strong>03/2024:</strong> Our paper <a href="https://weiqi-zhang.github.io/UDiFF/">UDiFF</a> on UDF-based 3D generative models is accepted to <b>CVPR 2024</b>.
@@ -71,6 +96,9 @@
                   </li>
                   <li><strong>09/2023:</strong> Our paper <a href="">VP2P-Match</a> on image to LiDAR point cloud registration is accepted to <b>NeurIPS 2023</b> <strong><span style="color:#ff0000;">(Spotlight)</span></strong>.
                   </li>
+
+                  <a href="javascript:toggleblock(&#39;old_news&#39;)">---- show more ----</a>
+                  <div id="old_news" style="display: none;">
                   <li><strong>08/2023:</strong> Our paper <a href="https://github.com/junshengzhou/LevelSetUDF/">LevelSetUDF</a> on neural implicit representations is accepted to <b>ICCV 2023</b>.
                   </li>
                   <!-- <li><strong>06/2023:</strong> One paper on surface reconstruction that I advised is accepted to <b>SMI 2023</b> and <b>C&G 2023</b>.-->
@@ -83,8 +111,6 @@
                   <li><strong>11/2022:</strong> Our paper <a href="https://github.com/lisj575/NeAF/">NeAF</a> on implicit point normal estimation is accepted to <b>AAAI 2023</b> <strong><span style="color:#ff0000;">(Oral)</span></strong>.
                   </li>
 
-                  <a href="javascript:toggleblock(&#39;old_news&#39;)">---- show more ----</a>
-                  <div id="old_news" style="display: none;">
 
                   <li><strong>09/2022:</strong> Our paper <a href="https://junshengzhou.github.io/CAP-UDF/">CAP-UDF</a> on surface reconstruction is accepted to <b>NeurIPS 2022</b>.
                   </li>
@@ -109,811 +135,104 @@
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
               <heading>Research</heading>
-              <p>(<strong>*</strong> Equal Contribution)</p>
+              <p style="text-align:left; margin-top:10px; margin-bottom:5px;">
+                <a href="javascript:void(0);" id="selectedBtn" onclick="showSelected()" style="font-size:16px; text-decoration:none; font-weight:bold; margin-right:8px;">Selected Publications</a>
+                <span style="font-size:16px; color:gray; font-weight:bold; margin:0 10px;">| &nbsp</span>
+                <a href="javascript:void(0);" id="allBtn" onclick="showAll()" style="font-size:16px; text-decoration:none; font-weight:normal;">All Publications</a>
+              </p>
+              
             </td>
           </tr>
         </tbody></table>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="diffgs_stop()" onmouseover="diffgs_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="diffgs" style="opacity: 0;">
-                  <video width="225" muted="" autoplay="" loop="">
-                    <source src="media/diffgs_after.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <img src="media/diffgs_before.png" width="225">
-        
-              </div>
-              <script type="text/javascript">
-                function diffgs_start() {
-                  document.getElementById('diffgs').style.opacity = "1";
-                }
-                function diffgs_stop() {
-                  document.getElementById('diffgs').style.opacity = "0";
-                }
-                diffgs_stop()
-              </script>
-            </td>
-        
-            <td width="65%" valign="top">
-              <a href="https://junshengzhou.github.io/DiffGS/">
-                <papertitle>DiffGS: Functional Gaussian Splatting Diffusion</papertitle>
-              </a>
-              <br>
-              <strong>Junsheng Zhou*</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>
-              <br>
-              <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
-              <br>
-              <a href="https://junshengzhou.github.io/DiffGS/">project page</a> |             
-              <a href="https://arxiv.org/abs/2410.19657">arXiv</a> |
-              <a href="https://github.com/weiqi-zhang/DiffGS">code</a>
-        
-              <p align="justify", style="font-size:13px"> Introducing a powerful 3D generative model that generates Gaussian primitives in arbitrary numbers by functionally disentangling Gaussian Splatting.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="dpa_stop()" onmouseover="dpa_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="dpa" style="opacity: 0;">
-                  <video width="225" muted="" autoplay="" loop="">
-                    <source src="media/dpa_after.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <img src="media/dpa_before.png" width="225">
-        
-              </div>
-              <script type="text/javascript">
-                function dpa_start() {
-                  document.getElementById('dpa').style.opacity = "1";
-                }
-                function dpa_stop() {
-                  document.getElementById('dpa').style.opacity = "0";
-                }
-                dpa_stop()
-              </script>
-            </td>
-        
-            <td width="65%" valign="top">
-              <a href="https://junshengzhou.github.io/DeepPriorAssembly/">
-                <papertitle>Zero-Shot Scene Reconstruction from Single Images with Deep Prior Assembly</papertitle>
-              </a>
-              <br>
-              <strong>Junsheng Zhou</strong>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
-              <br>
-              <a href="https://junshengzhou.github.io/DeepPriorAssembly/">project page</a> |             
-              <a href="https://arxiv.org/abs/2410.15971">arXiv</a> |
-              <a href="https://github.com/junshengzhou/DeepPriorAssembly">code</a>
-        
-              <p align="justify", style="font-size:13px">We propose to assemble diverse deep priors from large models for scene generation from single images in a zero shot manner.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="Binocular3DGS_stop()" onmouseover="Binocular3DGS_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="Binocular3DGS" style="opacity: 0;">
-                  <video width="225" muted="" autoplay="" loop="">
-                    <source src="media/binoculargs_after.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <img src="media/binoculargs_before.png" width="225">
-        
-              </div>
-              <script type="text/javascript">
-                function Binocular3DGS_start() {
-                  document.getElementById('Binocular3DGS').style.opacity = "1";
-                }
-                function Binocular3DGS_stop() {
-                  document.getElementById('Binocular3DGS').style.opacity = "0";
-                }
-                Binocular3DGS_stop()
-              </script>
-            </td>
-        
-            <td width="65%" valign="top">
-              <a href="https://hanl2010.github.io/Binocular3DGS/">
-                <papertitle>Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis</papertitle>
-              </a>
-              <br>
-              Liang Han, <strong>Junsheng Zhou</strong>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
-              <br>
-              <a href="https://hanl2010.github.io/Binocular3DGS/">project page</a> |             
-              <a href="https://arxiv.org/abs/2410.18822">arXiv</a> |
-              <a href="https://github.com/hanl2010/Binocular3DGS">code</a>
-        
-              <p align="justify", style="font-size:13px">We propose a sparse view 3D Gaussian Splatting framework which explores the self supervisions inherent in the binocular stereo consistency.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="fastn2n_stop()" onmouseover="fastn2n_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="fastn2n_shape" style="opacity: 0;">
-                  <img src='media/FastN2N_after.gif' width="225">
-                </div>
-                <img src="media/FastN2N_before.png" width="225">
-        
-              </div>
-              <script type="text/javascript">
-                function fastn2n_start() {
-                  document.getElementById('fastn2n_shape').style.opacity = "1";
-                }
-                function fastn2n_stop() {
-                  document.getElementById('fastn2n_shape').style.opacity = "0";
-                }
-                fastn2n_stop()
-              </script>
-            </td>
-        
-            <td width="65%" valign="top">
-              <a href="https://mabaorui.github.io/Noise2NoiseMapping/">
-                <papertitle>Fast Learning of Signed Distance Functions from Noisy Point Clouds via Noise to Noise Mapping</papertitle>
-              </a>
-              <br>
-              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>IEEE Transactions on Pattern Analysis and Machine Intelligence <b>(TPAMI)</b></em>, 2024
-              <br>
-              <a href="https://mabaorui.github.io/Noise2NoiseMapping/">project page</a> |             
-              <a href="https://ieeexplore.ieee.org/document/10561582">IEEE Xplore</a> | <a href="https://arxiv.org/abs/2407.14225">arXiv</a> |
-              <a href="https://github.com/mabaorui/Noise2NoiseMapping">code</a>
-        
-              <p align="justify", style="font-size:13px">We present a fast learning framework capable of inferring signed distance functions from noisy shapes within one minute through noise-to-noise mapping.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="UDiFF_stop()" onmouseover="UDiFF_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="UDiFF" style="opacity: 0;">
-                  <video width="225" muted="" autoplay="" loop="">
-                    <source src="media/UDiFF_after_2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <img src="media/UDiFF_before.png" width="225">
-        
-              </div>
-        
-              <script type="text/javascript">
-                function UDiFF_start() {
-                  document.getElementById('UDiFF').style.opacity = "1";
-                }
-                function UDiFF_stop() {
-                  document.getElementById('UDiFF').style.opacity = "0";
-                }
-                UDiFF_stop()
-              </script>
-            </td>
-        
-            <td width="65%" valign="top">
-              <a href="https://weiqi-zhang.github.io/UDiFF/">
-                <papertitle>UDiFF: Generating Conditional Unsigned Distance Fields with Optimal Wavelet Diffusion
-                </papertitle>
-              </a>
-              <br>
-              <strong>Junsheng Zhou*</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>, Kanle Shi, 
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2024
-              <br>
-              <a href="https://weiqi-zhang.github.io/UDiFF/">project page</a> |             
-              <a href="https://arxiv.org/abs/2404.06851">arXiv</a> |
-              <a href="https://github.com/weiqi-zhang/UDiFF">code</a>
-        
-              <p align="justify", style="font-size:13px">UDiFF is a 3D diffusion model for unsigned distance fields (UDFs) which is capable to generate textured 3D shapes with open surfaces from text conditions or unconditionally.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="cappami_stop()" onmouseover="cappami_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="cappami_shape" style="opacity: 0;">
-                  <img src='media/cappami_before.png' width="225">
-                </div>
-                <img src="media/cappami_after.png" width="225">
-        
-              </div>
-              <script type="text/javascript">
-                function cappami_start() {
-                  document.getElementById('cappami_shape').style.opacity = "1";
-                }
-                function cappami_stop() {
-                  document.getElementById('cappami_shape').style.opacity = "0";
-                }
-                cappami_stop()
-              </script>
-            </td>
-        
-            <td width="65%" valign="top">
-              <a href="https://junshengzhou.github.io/CAP-UDF/">
-                <papertitle>CAP-UDF: Learning Unsigned Distance Functions Progressively from Raw Point Clouds with Consistency-Aware Field Optimization</papertitle>
-              </a>
-              <br>
-              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Shujuan Li, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>IEEE Transactions on Pattern Analysis and Machine Intelligence <b>(TPAMI)</b></em>, 2024
-              <br>
-              <a href="https://junshengzhou.github.io/CAP-UDF/">project page</a> |             
-              <a href="https://ieeexplore.ieee.org/document/10506631">IEEE Xplore</a> | <a href="https://arxiv.org/pdf/2210.02757.pdf">arXiv</a> |
-              <a href="https://github.com/junshengzhou/CAP-UDF">code</a>
-        
-              <p align="justify", style="font-size:13px">We present CAP-UDF to represent shapes and scenes with arbitrary architecture by learning a Consistency-Aware unsigned distance function Progressively.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="uni3d_stop()" onmouseover="uni3d_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="uni3d" style="opacity: 0;">
-                  <img src='media/uni3d_before.jpg' width="225">
-                </div>
-                <img src="media/uni3d_after.jpg" width="225">
-      
-              </div>
-              <script type="text/javascript">
-                function uni3d_start() {
-                  document.getElementById('uni3d').style.opacity = "1";
-                }
-                function uni3d_stop() {
-                  document.getElementById('uni3d').style.opacity = "0";
-                }
-                uni3d_stop()
-              </script>
-            </td>
-      
-            <td width="65%" valign="top">
-              <a href="https://github.com/baaivision/Uni3D">
-                <papertitle>Uni3D: Exploring Unified 3D Representation at Scale
-                </papertitle>
-              </a>
-              <br>
-              <strong>Junsheng Zhou*</strong>, <a href="https://github.com/Wolfwjs/"> Jinsheng Wang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, 
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=en"> Tiejun Huang</a>, <a href="https://www.xloong.wang/">Xinlong Wang</a>
-              <br>
-              <em>International Conference on Learning Representations <b>(ICLR)</b></em>, 2024  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
-              <br>
-              <a href="https://huggingface.co/BAAI/Uni3D/tree/main/modelzoo">Model Zoo</a> |             
-              <a href="https://arxiv.org/abs/2310.06773/">arXiv</a> |
-              <a href="https://github.com/baaivision/Uni3D">code</a>
-      
-              <p align="justify", style="font-size:13px">We present Uni3D, a unified and scalable 3D pretraining framework for large-scale 3D representation learning, and explore its limits at the scale of one billion parameters.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-
-                  
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="oae_stop()" onmouseover="oae_start()">
-            <td width="28%">
-              <div class="one">
-                  <div class="two" id="oae_shape" style="opacity: 0;">
-                      <video width="225" muted="" autoplay="" loop="">
-                        <source src="media/3doae_after.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                  </div>
-                <img src="media/3doae_before.png" width="225">
-                <td width="65%" valign="top">
-                  <a href="https://junshengzhou.github.io/3D-OAE/">
-                    <papertitle>3D-OAE: Occlusion Auto-Encoders for Self-Supervised Learning on Point Clouds</papertitle>
-                  </a>
-                  <br>
-                  <strong>Junsheng Zhou*</strong>, <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao"> Xin Wen*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>,
-                  <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://www.gaoyue.org/"> Yue Gao</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-                  <br>
-                  <em>IEEE International Conference on Robotics and Automation <b>(ICRA)</b></em>, 2024  (<strong><span style="color:#ff0000;">Oral</span></strong>)
-                  <br>
-                  <a href="https://junshengzhou.github.io/3D-OAE/">project page</a> |             
-                  <a href="https://arxiv.org/pdf/2203.14084.pdf">arXiv</a> |
-                  <a href="https://github.com/junshengzhou/3D-OAE">code</a>
-        
-                  <p align="justify", style="font-size:13px">We present 3D-OAE, a novel self-supervised point cloud representation learning framework which is highly efficient and can be further transferred to various downstream tasks.
-                  </p>
-                </td>
-              </div>
-              <script type="text/javascript">
-                function oae_start() {
-                  document.getElementById('oae_shape').style.opacity = "1";
-                }
-                function oae_stop() {
-                  document.getElementById('oae_shape').style.opacity = "0";
-                }
-                oae_stop()
-              </script>
-            </td>
-
-
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="MusicUDF_stop()" onmouseover="MusicUDF_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="MusicUDF" style="opacity: 0;">
-                  <img src='media/musicudf_before.png' width="225">
-                </div>
-                <img src="media/musicudf_after.png" width="225">
-
-              </div>
-              <script type="text/javascript">
-                function MusicUDF_start() {
-                  document.getElementById('MusicUDF').style.opacity = "1";
-                }
-                function MusicUDF_stop() {
-                  document.getElementById('MusicUDF').style.opacity = "0";
-                }
-                MusicUDF_stop()
-              </script>
-            </td>
-
-            <td width="65%" valign="top">
-              <a href="">
-                <papertitle>MuSic-UDF: Learning Multi-Scale dynamic grid representation for high-fidelity surface reconstruction from point clouds</papertitle>
-              </a>
-              <br>
-              Chuan Jin, <a href="https://sai.jlu.edu.cn/info/1094/3443.htm"> Tieru Wu</a>, <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <strong>Junsheng Zhou</strong>
-              <br>
-              <em>Computers & Graphics  <b>(C&G)</b></em>, 2024
-              <br>
-              <a href="https://www.sciencedirect.com/science/article/abs/pii/S0097849324002164">project page</a> |             
-              <a href="">arXiv</a> |
-              <a href="">code</a>
-
-              <p align="justify", style="font-size:13px">A research project on 3D vision at Jilin University that I served as the advisor.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="GeoDream_stop()" onmouseover="GeoDream_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="GeoDream" style="opacity: 0;">
-                  <video width="225" muted="" autoplay="" loop="">
-                    <source src="media/GeoDream_after.mov" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <img src="media/GeoDream_before.png" width="225", height="120">
-      
-              </div>
-      
-              <script type="text/javascript">
-                function GeoDream_start() {
-                  document.getElementById('GeoDream').style.opacity = "1";
-                }
-                function GeoDream_stop() {
-                  document.getElementById('GeoDream').style.opacity = "0";
-                }
-                GeoDream_stop()
-              </script>
-            </td>
-      
-            <td width="65%" valign="top">
-              <a href="https://mabaorui.github.io/GeoDream_page/">
-                <papertitle>GeoDream: Disentangling 2D and Geometric Priors for High-Fidelity and Consistent 3D Generation
-                </papertitle>
-              </a>
-              <br>
-              <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://github.com/Bitterdhg/"> Haoge Deng*</a>, <strong>Junsheng Zhou</strong>, 
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=en"> Tiejun Huang</a>, <a href="https://www.xloong.wang/">Xinlong Wang</a>
-              <br>
-              <em>arXiv</b></em>, 2024
-              <br>
-              <a href="https://mabaorui.github.io/GeoDream_page/">project page</a> |             
-              <a href="https://arxiv.org/abs/2311.17971/">arXiv</a> |
-              <a href="https://github.com/baaivision/GeoDream">code</a>
-      
-              <p align="justify", style="font-size:13px">We present a 3D generation method that incorporates explicit generalized 3D priors with 2D diffusion priors to enhance the capability of generating unambiguous 3D consistent geometries.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="LDI_stop()" onmouseover="LDI_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="LDI" style="opacity: 0;">
-                  <img src='media/LDI_after.gif' width="225", height="120">
-                </div>
-                <img src="media/LDI_before.png" width="225", height="120">
-      
-              </div>
-      
-              <script type="text/javascript">
-                function LDI_start() {
-                  document.getElementById('LDI').style.opacity = "1";
-                }
-                function LDI_stop() {
-                  document.getElementById('LDI').style.opacity = "0";
-                }
-                LDI_stop()
-              </script>
-            </td>
-      
-            <td width="65%" valign="top">
-              <a href="https://lisj575.github.io/APU-LDI/">
-                <papertitle>Learning Continuous Implicit Field with Local Distance Indicator for Arbitrary-Scale Point Cloud Upsampling
-                </papertitle>
-              </a>
-              <br>
-              Shujuan Li*, <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, 
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2024
-              <br>
-              <a href="https://lisj575.github.io/APU-LDI/">project page</a> |             
-              <a href="https://arxiv.org/abs/2312.15133">arXiv</a> |
-              <a href="https://arxiv.org/abs/2312.15133">code</a>
-      
-              <p align="justify", style="font-size:13px">We propose to learn a Local Distance Indicator as local priors to guide  arbitrary-scale point cloud upsampling.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="NeuSurf_stop()" onmouseover="NeuSurf_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="NeuSurf" style="opacity: 0;">
-                  <img src='media/NeuSurf_after.png' width="225", height="120">
-                </div>
-                <img src="media/NeuSurf_before.png" width="225", height="120">
-      
-              </div>
-      
-              <script type="text/javascript">
-                function NeuSurf_start() {
-                  document.getElementById('NeuSurf').style.opacity = "1";
-                }
-                function NeuSurf_stop() {
-                  document.getElementById('NeuSurf').style.opacity = "0";
-                }
-                NeuSurf_stop()
-              </script>
-            </td>
-      
-            <td width="65%" valign="top">
-              <a href="https://alvin528.github.io/NeuSurf/">
-                <papertitle>NeuSurf: On-Surface Priors for Neural Surface Reconstruction from Sparse Input Views
-                </papertitle>
-              </a>
-              <br>
-              Han Huang, Yulun Wu, <strong>Junsheng Zhou</strong>, Ge Gao, Ming Gu,
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>
-              <br>
-              <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2024
-              <br>
-              <a href="https://alvin528.github.io/NeuSurf/">project page</a> |             
-              <a href="https://arxiv.org/pdf/2312.13977.pdf">arXiv</a> |
-              <a href="https://arxiv.org/pdf/2312.13977.pdf">code</a>
-      
-              <p align="justify", style="font-size:13px">We design a sparse view reconstruction framework that leverages on-surface priors from explicit points to achieve highly faithful surface reconstruction.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-	      
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="VP2P_stop()" onmouseover="VP2P_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="VP2P" style="opacity: 0;">
-                  <video width="225" muted="" autoplay="" loop="">
-                    <source src="media/Video_VP2PMatching_before.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <img src="media/Video_VP2PMatching_after.png" width="225">
-      
-              </div>
-
-              <script type="text/javascript">
-                function VP2P_start() {
-                  document.getElementById('VP2P').style.opacity = "1";
-                }
-                function VP2P_stop() {
-                  document.getElementById('VP2P').style.opacity = "0";
-                }
-                VP2P_stop()
-              </script>
-            </td>
-      
-            <td width="65%" valign="top">
-              <a href="https://github.com/junshengzhou/VP2P-Match">
-                <papertitle>Differentiable Registration of Images and LiDAR Point Clouds with VoxelPoint-to-Pixel Matching
-                </papertitle>
-              </a>
-              <br>
-              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://wen-yuan-zhang.github.io/">Wenyuan Zhang</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>,
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2023  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
-              <br>
-              <a href="https://github.com/junshengzhou/VP2P-Match">project page</a> |             
-              <a href="https://arxiv.org/abs/2312.04060">arXiv</a> |
-              <a href="https://github.com/junshengzhou/VP2P-Match">code</a>
-      
-              <p align="justify", style="font-size:13px">We design a triplet network to learn VoxelPoint-to-Pixel matching via a differentiable probabilistic PnP solver.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="ICCVUDF_stop()" onmouseover="ICCVUDF_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="ICCVUDF" style="opacity: 0;">
-                  <img src='media/iccv23udf_before.gif' width="225">
-                </div>
-                <img src="media/ICCVUDF_after.png" width="225">
-
-              </div>
-              <script type="text/javascript">
-                function ICCVUDF_start() {
-                  document.getElementById('ICCVUDF').style.opacity = "1";
-                }
-                function ICCVUDF_stop() {
-                  document.getElementById('ICCVUDF').style.opacity = "0";
-                }
-                ICCVUDF_stop()
-              </script>
-            </td>
-
-            <td width="65%" valign="top">
-              <a href="https://github.com/junshengzhou/LevelSetUDF">
-                <papertitle>Learning a More Continuous Zero Level Set in Unsigned Distance Fields through Level Set Projection
-                </papertitle>
-              </a>
-              <br>
-              <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Shujuan Li, 
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>IEEE/CVF International Conference on Computer Vision <b>(ICCV)</b></em>, 2023
-              <br>
-              <a href="https://github.com/junshengzhou/LevelSetUDF">project page</a> |             
-              <a href="https://arxiv.org/abs/2308.11441/">arXiv</a> |
-              <a href="https://github.com/junshengzhou/LevelSetUDF">code</a>
-
-              <p align="justify", style="font-size:13px">We propose to guide the learning of zero level set in UDF using the rest non-zero level sets via a projection procedure.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="LSA_stop()" onmouseover="LSA_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="LSA" style="opacity: 0;">
-                  <img src='media/GradientConsistency_before.gif' width="225">
-                </div>
-                <img src="media/LSA_after.png" width="225">
-
-              </div>
-              <script type="text/javascript">
-                function LSA_start() {
-                  document.getElementById('LSA').style.opacity = "1";
-                }
-                function LSA_stop() {
-                  document.getElementById('LSA').style.opacity = "0";
-                }
-                LSA_stop()
-              </script>
-            </td>
-
-            <td width="65%" valign="top">
-              <a href="https://github.com/mabaorui/TowardsBetterGradient/">
-                <papertitle>Towards Better Gradient Consistency for Neural Signed Distance Functions via Level Set Alignment</papertitle>
-              </a>
-              <br>
-              <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <strong>Junsheng Zhou*</strong>, 
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2023
-              <br>
-              <a href="https://github.com/mabaorui/TowardsBetterGradient/">project page</a> |             
-              <a href="http://arxiv.org/abs/2305.11601/">arXiv</a> |
-              <a href="https://github.com/mabaorui/TowardsBetterGradient/">code</a>
-
-              <p align="justify", style="font-size:13px">We propose a level set alignment loss to
-                evaluate the parallelism of level sets, which can be minimized to achieve better gradient consistency and eliminate uncertainty in the field.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="SMI_stop()" onmouseover="SMI_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="SMI" style="opacity: 0;">
-                  <img src='media/smi_before.png' width="225">
-                </div>
-                <img src="media/smi_after.png" width="225">
-
-              </div>
-              <script type="text/javascript">
-                function SMI_start() {
-                  document.getElementById('SMI').style.opacity = "1";
-                }
-                function SMI_stop() {
-                  document.getElementById('SMI').style.opacity = "0";
-                }
-                SMI_stop()
-              </script>
-            </td>
-
-            <td width="65%" valign="top">
-              <a href="">
-                <papertitle>Multi-Grid Representation with Field Regularization for Self-Supervised Surface Reconstruction from Point Clouds</papertitle>
-              </a>
-              <br>
-              Chuan Jin, <a href="https://sai.jlu.edu.cn/info/1094/3443.htm"> Tieru Wu</a>, <strong>Junsheng Zhou</strong>
-              <br>
-              <em>Shape Modeling International <b>(SMI)</b></em>, 2023
-              &nbsp &nbsp | &nbsp &nbsp 
-              <em>Computers & Graphics  <b>(C&G)</b></em>, 2023
-              <br>
-              <a href="https://www.sciencedirect.com/science/article/abs/pii/S0097849323001097">project page</a> |             
-              <a href="">arXiv</a> |
-              <a href="">code</a>
-
-              <p align="justify", style="font-size:13px">A research project on 3D vision at Jilin University that I served as the advisor.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-          <tr onmouseout="neaf_stop()" onmouseover="neaf_start()">
-            <td width="28%">
-              <div class="one">
-                <div class="two" id="neaf" style="opacity: 0;">
-                  <img src='media/neaf_before.gif' width="225">
-                </div>
-                <img src="media/neaf_after.png" width="225">
-
-              </div>
-              <script type="text/javascript">
-                function neaf_start() {
-                  document.getElementById('neaf').style.opacity = "1";
-                }
-                function neaf_stop() {
-                  document.getElementById('neaf').style.opacity = "0";
-                }
-                neaf_stop()
-              </script>
-            </td>
-
-            <td width="65%" valign="top">
-              <a href="https://github.com/lisj575/NeAF/">
-                <papertitle>NeAF: Learning Neural Angle Fields for Point Normal Estimation</papertitle>
-              </a>
-              <br>
-              Shujuan Li*, <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>,
-              <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
-              <br>
-              <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2023 (<strong><span style="color:#ff0000;">Oral</span></strong>)
-              <br>
-              <a href="https://lisj575.github.io/NeAF/">project page</a> |             
-              <a href="https://arxiv.org/pdf/2211.16869.pdf">arXiv</a> |
-              <a href="https://github.com/lisj575/NeAF/">code</a>
-
-              <p align="justify", style="font-size:13px">We present NeAF, a novel schema to learn implicit angle fields for point normal estimation. 
-                NeAF extends the success of implicit functions (e.g. NeRF and DeepSDF) to normal estimation.
-              </p>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+        <!-- Selected Publications Section -->
+        <div id="selectedPublications">
+          <!-- 把你希望放入“Selected Publications”的 table 元素都放在这里，比如最近几年重点论文 -->
+          <!-- 示例 -->
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
-            <tr onmouseout="capudf_stop()" onmouseover="capudf_start()">
+            <tr onmouseout="diffgs_stop()" onmouseover="diffgs_start()">
               <td width="28%">
                 <div class="one">
-                  <div class="two" id="capudf_shape" style="opacity: 0;">
-                    <img src='media/capudf_before.png' width="225">
+                  <div class="two" id="diffgs" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/diffgs_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
-                  <img src="media/capudf_after.png" width="225">
-
+                  <img src="media/diffgs_before.png" width="225">
+          
                 </div>
                 <script type="text/javascript">
-                  function capudf_start() {
-                    document.getElementById('capudf_shape').style.opacity = "1";
+                  function diffgs_start() {
+                    document.getElementById('diffgs').style.opacity = "1";
                   }
-                  function capudf_stop() {
-                    document.getElementById('capudf_shape').style.opacity = "0";
+                  function diffgs_stop() {
+                    document.getElementById('diffgs').style.opacity = "0";
                   }
-                  capudf_stop()
+                  diffgs_stop()
                 </script>
               </td>
-  
+          
               <td width="65%" valign="top">
-                <a href="https://junshengzhou.github.io/CAP-UDF/">
-                  <papertitle>Learning Consistency-Aware Unsigned Distance Functions Progressively from Raw Point Clouds</papertitle>
+                <a href="https://junshengzhou.github.io/DiffGS/">
+                  <papertitle>DiffGS: Functional Gaussian Splatting Diffusion</papertitle>
                 </a>
                 <br>
-                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <strong>Junsheng Zhou*</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>
                 <br>
-                <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2022 
+                <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
                 <br>
-                <a href="https://junshengzhou.github.io/CAP-UDF/">project page</a> |             
-                <a href="https://arxiv.org/pdf/2210.02757.pdf">arXiv</a> |
-                <a href="https://github.com/junshengzhou/CAP-UDF">code</a>
-
-                <p align="justify", style="font-size:13px">We present CAP-UDF to represent shapes and scenes with arbitrary architecture by learning a Consistency-Aware unsigned distance function Progressively.
+                <a href="https://junshengzhou.github.io/DiffGS/">project page</a> |             
+                <a href="https://arxiv.org/abs/2410.19657">arXiv</a> |
+                <a href="https://github.com/weiqi-zhang/DiffGS">code</a>
+          
+                <p align="justify", style="font-size:13px"> Introducing a powerful 3D generative model that generates Gaussian primitives in arbitrary numbers by functionally disentangling Gaussian Splatting.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="dpa_stop()" onmouseover="dpa_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="dpa" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/dpa_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/dpa_before.png" width="225">
+          
+                </div>
+                <script type="text/javascript">
+                  function dpa_start() {
+                    document.getElementById('dpa').style.opacity = "1";
+                  }
+                  function dpa_stop() {
+                    document.getElementById('dpa').style.opacity = "0";
+                  }
+                  dpa_stop()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://junshengzhou.github.io/DeepPriorAssembly/">
+                  <papertitle>Zero-Shot Scene Reconstruction from Single Images with Deep Prior Assembly</papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou</strong>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
+                <br>
+                <a href="https://junshengzhou.github.io/DeepPriorAssembly/">project page</a> |             
+                <a href="https://arxiv.org/abs/2410.15971">arXiv</a> |
+                <a href="https://github.com/junshengzhou/DeepPriorAssembly">code</a>
+          
+                <p align="justify", style="font-size:13px">We propose to assemble diverse deep priors from large models for scene generation from single images in a zero shot manner.
                 </p>
               </td>
             </tr>
@@ -922,46 +241,1315 @@
 
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
-            <tr onmouseout="attriflow_stop()" onmouseover="attriflow_start()">
+            <tr onmouseout="fastn2n_stop()" onmouseover="fastn2n_start()">
               <td width="28%">
                 <div class="one">
-                  <div class="two" id="attriflow_shape" style="opacity: 0;">
-                    <img src='media/attriflow_before.gif' width="225">
+                  <div class="two" id="fastn2n_shape" style="opacity: 0;">
+                    <img src='media/FastN2N_after.gif' width="225">
                   </div>
-                  <img src="media/attriflow_after.png" width="225">
-
+                  <img src="media/FastN2N_before.png" width="225">
+          
                 </div>
                 <script type="text/javascript">
-                  function attriflow_start() {
-                    document.getElementById('attriflow_shape').style.opacity = "1";
+                  function fastn2n_start() {
+                    document.getElementById('fastn2n_shape').style.opacity = "1";
                   }
-                  function attriflow_stop() {
-                    document.getElementById('attriflow_shape').style.opacity = "0";
+                  function fastn2n_stop() {
+                    document.getElementById('fastn2n_shape').style.opacity = "0";
                   }
-                  attriflow_stop()
+                  fastn2n_stop()
                 </script>
               </td>
-  
+          
               <td width="65%" valign="top">
-                <a href="https://github.com/junshengzhou/3DAttriFlow">
-                  <papertitle>3D Shape Reconstruction from 2D Images with Disentangled Attribute Flow</papertitle>
+                <a href="https://mabaorui.github.io/Noise2NoiseMapping/">
+                  <papertitle>Fast Learning of Signed Distance Functions from Noisy Point Clouds via Noise to Noise Mapping</papertitle>
                 </a>
                 <br>
-                <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao"> Xin Wen*</a>, <strong>Junsheng Zhou*</strong>, 
-                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, Hua Su, <a href="https://dongzhenwhu.github.io/index.html">Zhen Dong</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
                 <br>
-                <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2022 
+                <em>IEEE Transactions on Pattern Analysis and Machine Intelligence <b>(TPAMI)</b></em>, 2024
                 <br>
-                <a href="https://github.com/junshengzhou/3DAttriFlow">project page</a> |             
-                <a href="https://arxiv.org/abs/2203.15190">arXiv</a> |
-                <a href="https://github.com/junshengzhou/3DAttriFlow">code</a>
-
-                <p align="justify", style="font-size:13px">We present 3DAttriFlow to obtain high-quality 2D-to-3D reconstruction and point cloud completion results, while allowing controlled semantic attribute editing.
+                <a href="https://mabaorui.github.io/Noise2NoiseMapping/">project page</a> |             
+                <a href="https://ieeexplore.ieee.org/document/10561582">IEEE Xplore</a> | <a href="https://arxiv.org/abs/2407.14225">arXiv</a> |
+                <a href="https://github.com/mabaorui/Noise2NoiseMapping">code</a>
+          
+                <p align="justify", style="font-size:13px">We present a fast learning framework capable of inferring signed distance functions from noisy shapes within one minute through noise-to-noise mapping.
                 </p>
               </td>
             </tr>
             </tbody>
           </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="UDiFF_stop()" onmouseover="UDiFF_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="UDiFF" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/UDiFF_after_2.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/UDiFF_before.png" width="225">
+          
+                </div>
+          
+                <script type="text/javascript">
+                  function UDiFF_start() {
+                    document.getElementById('UDiFF').style.opacity = "1";
+                  }
+                  function UDiFF_stop() {
+                    document.getElementById('UDiFF').style.opacity = "0";
+                  }
+                  UDiFF_stop()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://weiqi-zhang.github.io/UDiFF/">
+                  <papertitle>UDiFF: Generating Conditional Unsigned Distance Fields with Optimal Wavelet Diffusion
+                  </papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>, Kanle Shi, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2024
+                <br>
+                <a href="https://weiqi-zhang.github.io/UDiFF/">project page</a> |             
+                <a href="https://arxiv.org/abs/2404.06851">arXiv</a> |
+                <a href="https://github.com/weiqi-zhang/UDiFF">code</a>
+          
+                <p align="justify", style="font-size:13px">UDiFF is a 3D diffusion model for unsigned distance fields (UDFs) which is capable to generate textured 3D shapes with open surfaces from text conditions or unconditionally.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="cappami_stop()" onmouseover="cappami_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="cappami_shape" style="opacity: 0;">
+                    <img src='media/cappami_before.png' width="225">
+                  </div>
+                  <img src="media/cappami_after.png" width="225">
+          
+                </div>
+                <script type="text/javascript">
+                  function cappami_start() {
+                    document.getElementById('cappami_shape').style.opacity = "1";
+                  }
+                  function cappami_stop() {
+                    document.getElementById('cappami_shape').style.opacity = "0";
+                  }
+                  cappami_stop()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://junshengzhou.github.io/CAP-UDF/">
+                  <papertitle>CAP-UDF: Learning Unsigned Distance Functions Progressively from Raw Point Clouds with Consistency-Aware Field Optimization</papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Shujuan Li, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE Transactions on Pattern Analysis and Machine Intelligence <b>(TPAMI)</b></em>, 2024
+                <br>
+                <a href="https://junshengzhou.github.io/CAP-UDF/">project page</a> |             
+                <a href="https://ieeexplore.ieee.org/document/10506631">IEEE Xplore</a> | <a href="https://arxiv.org/pdf/2210.02757.pdf">arXiv</a> |
+                <a href="https://github.com/junshengzhou/CAP-UDF">code</a>
+          
+                <p align="justify", style="font-size:13px">We present CAP-UDF to represent shapes and scenes with arbitrary architecture by learning a Consistency-Aware unsigned distance function Progressively.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="uni3d_stop()" onmouseover="uni3d_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="uni3d" style="opacity: 0;">
+                    <img src='media/uni3d_before.jpg' width="225">
+                  </div>
+                  <img src="media/uni3d_after.jpg" width="225">
+        
+                </div>
+                <script type="text/javascript">
+                  function uni3d_start() {
+                    document.getElementById('uni3d').style.opacity = "1";
+                  }
+                  function uni3d_stop() {
+                    document.getElementById('uni3d').style.opacity = "0";
+                  }
+                  uni3d_stop()
+                </script>
+              </td>
+        
+              <td width="65%" valign="top">
+                <a href="https://github.com/baaivision/Uni3D">
+                  <papertitle>Uni3D: Exploring Unified 3D Representation at Scale
+                  </papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://github.com/Wolfwjs/"> Jinsheng Wang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=en"> Tiejun Huang</a>, <a href="https://www.xloong.wang/">Xinlong Wang</a>
+                <br>
+                <em>International Conference on Learning Representations <b>(ICLR)</b></em>, 2024  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
+                <br>
+                <a href="https://huggingface.co/BAAI/Uni3D/tree/main/modelzoo">Model Zoo</a> |             
+                <a href="https://arxiv.org/abs/2310.06773/">arXiv</a> |
+                <a href="https://github.com/baaivision/Uni3D">code</a>
+        
+                <p align="justify", style="font-size:13px">We present Uni3D, a unified and scalable 3D pretraining framework for large-scale 3D representation learning, and explore its limits at the scale of one billion parameters.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+  
+                    
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="oae_stop()" onmouseover="oae_start()">
+              <td width="28%">
+                <div class="one">
+                    <div class="two" id="oae_shape" style="opacity: 0;">
+                        <video width="225" muted="" autoplay="" loop="">
+                          <source src="media/3doae_after.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                    </div>
+                  <img src="media/3doae_before.png" width="225">
+                  <td width="65%" valign="top">
+                    <a href="https://junshengzhou.github.io/3D-OAE/">
+                      <papertitle>3D-OAE: Occlusion Auto-Encoders for Self-Supervised Learning on Point Clouds</papertitle>
+                    </a>
+                    <br>
+                    <strong>Junsheng Zhou*</strong>, <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao"> Xin Wen*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>,
+                    <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://www.gaoyue.org/"> Yue Gao</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                    <br>
+                    <em>IEEE International Conference on Robotics and Automation <b>(ICRA)</b></em>, 2024  (<strong><span style="color:#ff0000;">Oral</span></strong>)
+                    <br>
+                    <a href="https://junshengzhou.github.io/3D-OAE/">project page</a> |             
+                    <a href="https://arxiv.org/pdf/2203.14084.pdf">arXiv</a> |
+                    <a href="https://github.com/junshengzhou/3D-OAE">code</a>
+          
+                    <p align="justify", style="font-size:13px">We present 3D-OAE, a novel self-supervised point cloud representation learning framework which is highly efficient and can be further transferred to various downstream tasks.
+                    </p>
+                  </td>
+                </div>
+                <script type="text/javascript">
+                  function oae_start() {
+                    document.getElementById('oae_shape').style.opacity = "1";
+                  }
+                  function oae_stop() {
+                    document.getElementById('oae_shape').style.opacity = "0";
+                  }
+                  oae_stop()
+                </script>
+              </td>
+  
+  
+            </tr>
+            </tbody>
+          </table>
+  
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="VP2P_stop()" onmouseover="VP2P_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="VP2P" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/Video_VP2PMatching_before.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/Video_VP2PMatching_after.png" width="225">
+        
+                </div>
+  
+                <script type="text/javascript">
+                  function VP2P_start() {
+                    document.getElementById('VP2P').style.opacity = "1";
+                  }
+                  function VP2P_stop() {
+                    document.getElementById('VP2P').style.opacity = "0";
+                  }
+                  VP2P_stop()
+                </script>
+              </td>
+        
+              <td width="65%" valign="top">
+                <a href="https://github.com/junshengzhou/VP2P-Match">
+                  <papertitle>Differentiable Registration of Images and LiDAR Point Clouds with VoxelPoint-to-Pixel Matching
+                  </papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://wen-yuan-zhang.github.io/">Wenyuan Zhang</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>,
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2023  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
+                <br>
+                <a href="https://github.com/junshengzhou/VP2P-Match">project page</a> |             
+                <a href="https://arxiv.org/abs/2312.04060">arXiv</a> |
+                <a href="https://github.com/junshengzhou/VP2P-Match">code</a>
+        
+                <p align="justify", style="font-size:13px">We design a triplet network to learn VoxelPoint-to-Pixel matching via a differentiable probabilistic PnP solver.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="ICCVUDF_stop()" onmouseover="ICCVUDF_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="ICCVUDF" style="opacity: 0;">
+                    <img src='media/iccv23udf_before.gif' width="225">
+                  </div>
+                  <img src="media/ICCVUDF_after.png" width="225">
+  
+                </div>
+                <script type="text/javascript">
+                  function ICCVUDF_start() {
+                    document.getElementById('ICCVUDF').style.opacity = "1";
+                  }
+                  function ICCVUDF_stop() {
+                    document.getElementById('ICCVUDF').style.opacity = "0";
+                  }
+                  ICCVUDF_stop()
+                </script>
+              </td>
+  
+              <td width="65%" valign="top">
+                <a href="https://github.com/junshengzhou/LevelSetUDF">
+                  <papertitle>Learning a More Continuous Zero Level Set in Unsigned Distance Fields through Level Set Projection
+                  </papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Shujuan Li, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE/CVF International Conference on Computer Vision <b>(ICCV)</b></em>, 2023
+                <br>
+                <a href="https://github.com/junshengzhou/LevelSetUDF">project page</a> |             
+                <a href="https://arxiv.org/abs/2308.11441/">arXiv</a> |
+                <a href="https://github.com/junshengzhou/LevelSetUDF">code</a>
+  
+                <p align="justify", style="font-size:13px">We propose to guide the learning of zero level set in UDF using the rest non-zero level sets via a projection procedure.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+              <tbody>
+              <tr onmouseout="capudf_stop()" onmouseover="capudf_start()">
+                <td width="28%">
+                  <div class="one">
+                    <div class="two" id="capudf_shape" style="opacity: 0;">
+                      <img src='media/capudf_before.png' width="225">
+                    </div>
+                    <img src="media/capudf_after.png" width="225">
+  
+                  </div>
+                  <script type="text/javascript">
+                    function capudf_start() {
+                      document.getElementById('capudf_shape').style.opacity = "1";
+                    }
+                    function capudf_stop() {
+                      document.getElementById('capudf_shape').style.opacity = "0";
+                    }
+                    capudf_stop()
+                  </script>
+                </td>
+    
+                <td width="65%" valign="top">
+                  <a href="https://junshengzhou.github.io/CAP-UDF/">
+                    <papertitle>Learning Consistency-Aware Unsigned Distance Functions Progressively from Raw Point Clouds</papertitle>
+                  </a>
+                  <br>
+                  <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                  <br>
+                  <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2022 
+                  <br>
+                  <a href="https://junshengzhou.github.io/CAP-UDF/">project page</a> |             
+                  <a href="https://arxiv.org/pdf/2210.02757.pdf">arXiv</a> |
+                  <a href="https://github.com/junshengzhou/CAP-UDF">code</a>
+  
+                  <p align="justify", style="font-size:13px">We present CAP-UDF to represent shapes and scenes with arbitrary architecture by learning a Consistency-Aware unsigned distance function Progressively.
+                  </p>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+  
+
+        </div>
+
+        <!-- All Publications Section -->
+        <div id="allPublications" style="display: none;">
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="NeRFPrior_stop()" onmouseover="NeRFPrior_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="NeRFPrior" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/NeRFPrior_cvpr25_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/NeRFPrior_cvpr25_before.png" width="225">
+          
+                </div>
+          
+                <script type="text/javascript">
+                  function NeRFPrior_start() {
+                    document.getElementById('NeRFPrior').style.opacity = "1";
+                  }
+                  function NeRFPrior_stop() {
+                    document.getElementById('NeRFPrior').style.opacity = "0";
+                  }
+                  NeRFPrior_stop()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://wen-yuan-zhang.github.io/NeRFPrior/">
+                  <papertitle>NeRFPrior: Learning Neural Radiance Field as a Prior for Indoor Scene Reconstruction
+                  </papertitle>
+                </a>
+                <br>
+                <a href="https://wen-yuan-zhang.github.io/">Wenyuan Zhang</a>, <a href="https://emily-jia.github.io/personal-web//">Yueting Jia</a>, <strong>Junsheng Zhou</strong>, <a href="https://mabaorui.github.io/">Baorui Ma</a>, Kanle Shi, <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2025 (<strong><span style="color:#ff0000;">Highlight</span></strong>)
+                <br>
+                <a href="https://wen-yuan-zhang.github.io/NeRFPrior/">project page</a> |        
+                <a href="https://arxiv.org/abs/2503.18361">arXiv</a> |
+                <a href="https://github.com/wen-yuan-zhang/NeRFPrior">code</a>
+          
+                <p align="justify", style="font-size:13px">
+                  We present NeRFPrior, which adopts a neural radiance field as a prior to learn signed distance fields using volume rendering for indoor scene surface reconstruction. 
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="BSDF_stop()" onmouseover="BSDF_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="BSDF" style="opacity: 0;">
+                    <img src="media/BSDF_cvpr25_after.png" width="225">
+
+                  </div>
+                  <img src="media/BSDF_cvpr25_before.png" width="225">
+          
+                </div>
+          
+                <script type="text/javascript">
+                  function BSDF_start() {
+                    document.getElementById('BSDF').style.opacity = "1";
+                  }
+                  function BSDF_stop() {
+                    document.getElementById('BSDF').style.opacity = "0";
+                  }
+                  BSDF_stop()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://wen-yuan-zhang.github.io/NeRFPrior/">
+                  <papertitle>Learning Bijective Surface Parameterization for Inferring Signed Distance Functions from Sparse Point Clouds with Grid Deformation
+                  </papertitle>
+                </a>
+                <br>
+                Takeshi Noda*, Chao Chen*, <strong>Junsheng Zhou</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang</a>, <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2025
+                <br>
+                <a href="">project page</a> |        
+                <a href="https://arxiv.org/abs/2503.23670">arXiv</a>  | 
+                <a href="https://github.com/takeshie/Bijective-SDF">code</a>
+          
+                <p align="justify", style="font-size:13px">
+                  Proposing an effective approach for smooth surface reconstruction from sparse point clouds. 
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="diffgs_stop_all()" onmouseover="diffgs_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="diffgs_all" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/diffgs_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/diffgs_before.png" width="225">
+          
+                </div>
+                <script type="text/javascript">
+                  function diffgs_start_all() {
+                    document.getElementById('diffgs_all').style.opacity = "1";
+                  }
+                  function diffgs_stop_all() {
+                    document.getElementById('diffgs_all').style.opacity = "0";
+                  }
+                  diffgs_stop_all()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://junshengzhou.github.io/DiffGS/">
+                  <papertitle>DiffGS: Functional Gaussian Splatting Diffusion</papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>
+                <br>
+                <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
+                <br>
+                <a href="https://junshengzhou.github.io/DiffGS/">project page</a> |             
+                <a href="https://arxiv.org/abs/2410.19657">arXiv</a> |
+                <a href="https://github.com/weiqi-zhang/DiffGS">code</a>
+          
+                <p align="justify", style="font-size:13px"> Introducing a powerful 3D generative model that generates Gaussian primitives in arbitrary numbers by functionally disentangling Gaussian Splatting.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="dpa_stop_all()" onmouseover="dpa_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="dpa_all" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/dpa_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/dpa_before.png" width="225">
+          
+                </div>
+                <script type="text/javascript">
+                  function dpa_start_all() {
+                    document.getElementById('dpa_all').style.opacity = "1";
+                  }
+                  function dpa_stop_all() {
+                    document.getElementById('dpa_all').style.opacity = "0";
+                  }
+                  dpa_stop_all()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://junshengzhou.github.io/DeepPriorAssembly/">
+                  <papertitle>Zero-Shot Scene Reconstruction from Single Images with Deep Prior Assembly</papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou</strong>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
+                <br>
+                <a href="https://junshengzhou.github.io/DeepPriorAssembly/">project page</a> |             
+                <a href="https://arxiv.org/abs/2410.15971">arXiv</a> |
+                <a href="https://github.com/junshengzhou/DeepPriorAssembly">code</a>
+          
+                <p align="justify", style="font-size:13px">We propose to assemble diverse deep priors from large models for scene generation from single images in a zero shot manner.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="Binocular3DGS_stop_all()" onmouseover="Binocular3DGS_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="Binocular3DGS" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/binoculargs_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/binoculargs_before.png" width="225">
+          
+                </div>
+                <script type="text/javascript">
+                  function Binocular3DGS_start_all() {
+                    document.getElementById('Binocular3DGS').style.opacity = "1";
+                  }
+                  function Binocular3DGS_stop_all() {
+                    document.getElementById('Binocular3DGS').style.opacity = "0";
+                  }
+                  Binocular3DGS_stop_all()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://hanl2010.github.io/Binocular3DGS/">
+                  <papertitle>Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis</papertitle>
+                </a>
+                <br>
+                Liang Han, <strong>Junsheng Zhou</strong>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2024
+                <br>
+                <a href="https://hanl2010.github.io/Binocular3DGS/">project page</a> |             
+                <a href="https://arxiv.org/abs/2410.18822">arXiv</a> |
+                <a href="https://github.com/hanl2010/Binocular3DGS">code</a>
+          
+                <p align="justify", style="font-size:13px">We propose a sparse view 3D Gaussian Splatting framework which explores the self supervisions inherent in the binocular stereo consistency.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="fastn2n_stop_all()" onmouseover="fastn2n_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="fastn2n_shape_all" style="opacity: 0;">
+                    <img src='media/FastN2N_after.gif' width="225">
+                  </div>
+                  <img src="media/FastN2N_before.png" width="225">
+          
+                </div>
+                <script type="text/javascript">
+                  function fastn2n_start_all() {
+                    document.getElementById('fastn2n_shape_all').style.opacity = "1";
+                  }
+                  function fastn2n_stop_all() {
+                    document.getElementById('fastn2n_shape_all').style.opacity = "0";
+                  }
+                  fastn2n_stop_all()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://mabaorui.github.io/Noise2NoiseMapping/">
+                  <papertitle>Fast Learning of Signed Distance Functions from Noisy Point Clouds via Noise to Noise Mapping</papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE Transactions on Pattern Analysis and Machine Intelligence <b>(TPAMI)</b></em>, 2024
+                <br>
+                <a href="https://mabaorui.github.io/Noise2NoiseMapping/">project page</a> |             
+                <a href="https://ieeexplore.ieee.org/document/10561582">IEEE Xplore</a> | <a href="https://arxiv.org/abs/2407.14225">arXiv</a> |
+                <a href="https://github.com/mabaorui/Noise2NoiseMapping">code</a>
+          
+                <p align="justify", style="font-size:13px">We present a fast learning framework capable of inferring signed distance functions from noisy shapes within one minute through noise-to-noise mapping.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="UDiFF_stop_all()" onmouseover="UDiFF_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="UDiFF_all" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/UDiFF_after_2.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/UDiFF_before.png" width="225">
+          
+                </div>
+          
+                <script type="text/javascript">
+                  function UDiFF_start_all() {
+                    document.getElementById('UDiFF_all').style.opacity = "1";
+                  }
+                  function UDiFF_stop_all() {
+                    document.getElementById('UDiFF_all').style.opacity = "0";
+                  }
+                  UDiFF_stop_all()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://weiqi-zhang.github.io/UDiFF/">
+                  <papertitle>UDiFF: Generating Conditional Unsigned Distance Fields with Optimal Wavelet Diffusion
+                  </papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://weiqi-zhang.github.io/">Weiqi Zhang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>, Kanle Shi, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2024
+                <br>
+                <a href="https://weiqi-zhang.github.io/UDiFF/">project page</a> |             
+                <a href="https://arxiv.org/abs/2404.06851">arXiv</a> |
+                <a href="https://github.com/weiqi-zhang/UDiFF">code</a>
+          
+                <p align="justify", style="font-size:13px">UDiFF is a 3D diffusion model for unsigned distance fields (UDFs) which is capable to generate textured 3D shapes with open surfaces from text conditions or unconditionally.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="cappami_stop_all()" onmouseover="cappami_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="cappami_shape_all" style="opacity: 0;">
+                    <img src='media/cappami_before.png' width="225">
+                  </div>
+                  <img src="media/cappami_after.png" width="225">
+          
+                </div>
+                <script type="text/javascript">
+                  function cappami_start_all() {
+                    document.getElementById('cappami_shape_all').style.opacity = "1";
+                  }
+                  function cappami_stop_all() {
+                    document.getElementById('cappami_shape_all').style.opacity = "0";
+                  }
+                  cappami_stop_all()
+                </script>
+              </td>
+          
+              <td width="65%" valign="top">
+                <a href="https://junshengzhou.github.io/CAP-UDF/">
+                  <papertitle>CAP-UDF: Learning Unsigned Distance Functions Progressively from Raw Point Clouds with Consistency-Aware Field Optimization</papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Shujuan Li, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE Transactions on Pattern Analysis and Machine Intelligence <b>(TPAMI)</b></em>, 2024
+                <br>
+                <a href="https://junshengzhou.github.io/CAP-UDF/">project page</a> |             
+                <a href="https://ieeexplore.ieee.org/document/10506631">IEEE Xplore</a> | <a href="https://arxiv.org/pdf/2210.02757.pdf">arXiv</a> |
+                <a href="https://github.com/junshengzhou/CAP-UDF">code</a>
+          
+                <p align="justify", style="font-size:13px">We present CAP-UDF to represent shapes and scenes with arbitrary architecture by learning a Consistency-Aware unsigned distance function Progressively.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="uni3d_stop_all()" onmouseover="uni3d_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="uni3d_all" style="opacity: 0;">
+                    <img src='media/uni3d_before.jpg' width="225">
+                  </div>
+                  <img src="media/uni3d_after.jpg" width="225">
+        
+                </div>
+                <script type="text/javascript">
+                  function uni3d_start_all() {
+                    document.getElementById('uni3d_all').style.opacity = "1";
+                  }
+                  function uni3d_stop_all() {
+                    document.getElementById('uni3d_all').style.opacity = "0";
+                  }
+                  uni3d_stop_all()
+                </script>
+              </td>
+        
+              <td width="65%" valign="top">
+                <a href="https://github.com/baaivision/Uni3D">
+                  <papertitle>Uni3D: Exploring Unified 3D Representation at Scale
+                  </papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://github.com/Wolfwjs/"> Jinsheng Wang*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=en"> Tiejun Huang</a>, <a href="https://www.xloong.wang/">Xinlong Wang</a>
+                <br>
+                <em>International Conference on Learning Representations <b>(ICLR)</b></em>, 2024  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
+                <br>
+                <a href="https://huggingface.co/BAAI/Uni3D/tree/main/modelzoo">Model Zoo</a> |             
+                <a href="https://arxiv.org/abs/2310.06773/">arXiv</a> |
+                <a href="https://github.com/baaivision/Uni3D">code</a>
+        
+                <p align="justify", style="font-size:13px">We present Uni3D, a unified and scalable 3D pretraining framework for large-scale 3D representation learning, and explore its limits at the scale of one billion parameters.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+  
+                    
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="oae_stop_all()" onmouseover="oae_start_all()">
+              <td width="28%">
+                <div class="one">
+                    <div class="two" id="oae_shape_all" style="opacity: 0;">
+                        <video width="225" muted="" autoplay="" loop="">
+                          <source src="media/3doae_after.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                    </div>
+                  <img src="media/3doae_before.png" width="225">
+                  <td width="65%" valign="top">
+                    <a href="https://junshengzhou.github.io/3D-OAE/">
+                      <papertitle>3D-OAE: Occlusion Auto-Encoders for Self-Supervised Learning on Point Clouds</papertitle>
+                    </a>
+                    <br>
+                    <strong>Junsheng Zhou*</strong>, <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao"> Xin Wen*</a>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>,
+                    <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://www.gaoyue.org/"> Yue Gao</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                    <br>
+                    <em>IEEE International Conference on Robotics and Automation <b>(ICRA)</b></em>, 2024  (<strong><span style="color:#ff0000;">Oral</span></strong>)
+                    <br>
+                    <a href="https://junshengzhou.github.io/3D-OAE/">project page</a> |             
+                    <a href="https://arxiv.org/pdf/2203.14084.pdf">arXiv</a> |
+                    <a href="https://github.com/junshengzhou/3D-OAE">code</a>
+          
+                    <p align="justify", style="font-size:13px">We present 3D-OAE, a novel self-supervised point cloud representation learning framework which is highly efficient and can be further transferred to various downstream tasks.
+                    </p>
+                  </td>
+                </div>
+                <script type="text/javascript">
+                  function oae_start_all() {
+                    document.getElementById('oae_shape_all').style.opacity = "1";
+                  }
+                  function oae_stop_all() {
+                    document.getElementById('oae_shape_all').style.opacity = "0";
+                  }
+                  oae_stop_all()
+                </script>
+              </td>
+  
+  
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="MusicUDF_stop_all()" onmouseover="MusicUDF_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="MusicUDF" style="opacity: 0;">
+                    <img src='media/musicudf_before.png' width="225">
+                  </div>
+                  <img src="media/musicudf_after.png" width="225">
+  
+                </div>
+                <script type="text/javascript">
+                  function MusicUDF_start_all() {
+                    document.getElementById('MusicUDF').style.opacity = "1";
+                  }
+                  function MusicUDF_stop_all() {
+                    document.getElementById('MusicUDF').style.opacity = "0";
+                  }
+                  MusicUDF_stop_all()
+                </script>
+              </td>
+  
+              <td width="65%" valign="top">
+                <a href="">
+                  <papertitle>MuSic-UDF: Learning Multi-Scale dynamic grid representation for high-fidelity surface reconstruction from point clouds</papertitle>
+                </a>
+                <br>
+                Chuan Jin, <a href="https://sai.jlu.edu.cn/info/1094/3443.htm"> Tieru Wu</a>, <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <strong>Junsheng Zhou</strong>
+                <br>
+                <em>Computers & Graphics  <b>(C&G)</b></em>, 2024
+                <br>
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0097849324002164">project page</a> |             
+                <a href="">arXiv</a> |
+                <a href="">code</a>
+  
+                <p align="justify", style="font-size:13px">A research project on 3D vision at Jilin University that I served as the advisor.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="GeoDream_stop_all()" onmouseover="GeoDream_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="GeoDream" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/GeoDream_after.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/GeoDream_before.png" width="225", height="120">
+        
+                </div>
+        
+                <script type="text/javascript">
+                  function GeoDream_start_all() {
+                    document.getElementById('GeoDream').style.opacity = "1";
+                  }
+                  function GeoDream_stop_all() {
+                    document.getElementById('GeoDream').style.opacity = "0";
+                  }
+                  GeoDream_stop_all()
+                </script>
+              </td>
+        
+              <td width="65%" valign="top">
+                <a href="https://mabaorui.github.io/GeoDream_page/">
+                  <papertitle>GeoDream: Disentangling 2D and Geometric Priors for High-Fidelity and Consistent 3D Generation
+                  </papertitle>
+                </a>
+                <br>
+                <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://github.com/Bitterdhg/"> Haoge Deng*</a>, <strong>Junsheng Zhou</strong>, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=en"> Tiejun Huang</a>, <a href="https://www.xloong.wang/">Xinlong Wang</a>
+                <br>
+                <em>arXiv</b></em>, 2024
+                <br>
+                <a href="https://mabaorui.github.io/GeoDream_page/">project page</a> |             
+                <a href="https://arxiv.org/abs/2311.17971/">arXiv</a> |
+                <a href="https://github.com/baaivision/GeoDream">code</a>
+        
+                <p align="justify", style="font-size:13px">We present a 3D generation method that incorporates explicit generalized 3D priors with 2D diffusion priors to enhance the capability of generating unambiguous 3D consistent geometries.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="LDI_stop_all()" onmouseover="LDI_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="LDI" style="opacity: 0;">
+                    <img src='media/LDI_after.gif' width="225", height="120">
+                  </div>
+                  <img src="media/LDI_before.png" width="225", height="120">
+        
+                </div>
+        
+                <script type="text/javascript">
+                  function LDI_start_all() {
+                    document.getElementById('LDI').style.opacity = "1";
+                  }
+                  function LDI_stop_all() {
+                    document.getElementById('LDI').style.opacity = "0";
+                  }
+                  LDI_stop_all()
+                </script>
+              </td>
+        
+              <td width="65%" valign="top">
+                <a href="https://lisj575.github.io/APU-LDI/">
+                  <papertitle>Learning Continuous Implicit Field with Local Distance Indicator for Arbitrary-Scale Point Cloud Upsampling
+                  </papertitle>
+                </a>
+                <br>
+                Shujuan Li*, <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2024
+                <br>
+                <a href="https://lisj575.github.io/APU-LDI/">project page</a> |             
+                <a href="https://arxiv.org/abs/2312.15133">arXiv</a> |
+                <a href="https://arxiv.org/abs/2312.15133">code</a>
+        
+                <p align="justify", style="font-size:13px">We propose to learn a Local Distance Indicator as local priors to guide  arbitrary-scale point cloud upsampling.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="NeuSurf_stop_all()" onmouseover="NeuSurf_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="NeuSurf" style="opacity: 0;">
+                    <img src='media/NeuSurf_after.png' width="225", height="120">
+                  </div>
+                  <img src="media/NeuSurf_before.png" width="225", height="120">
+        
+                </div>
+        
+                <script type="text/javascript">
+                  function NeuSurf_start_all() {
+                    document.getElementById('NeuSurf').style.opacity = "1";
+                  }
+                  function NeuSurf_stop_all() {
+                    document.getElementById('NeuSurf').style.opacity = "0";
+                  }
+                  NeuSurf_stop_all()
+                </script>
+              </td>
+        
+              <td width="65%" valign="top">
+                <a href="https://alvin528.github.io/NeuSurf/">
+                  <papertitle>NeuSurf: On-Surface Priors for Neural Surface Reconstruction from Sparse Input Views
+                  </papertitle>
+                </a>
+                <br>
+                Han Huang, Yulun Wu, <strong>Junsheng Zhou</strong>, Ge Gao, Ming Gu,
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>
+                <br>
+                <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2024
+                <br>
+                <a href="https://alvin528.github.io/NeuSurf/">project page</a> |             
+                <a href="https://arxiv.org/pdf/2312.13977.pdf">arXiv</a> |
+                <a href="https://arxiv.org/pdf/2312.13977.pdf">code</a>
+        
+                <p align="justify", style="font-size:13px">We design a sparse view reconstruction framework that leverages on-surface priors from explicit points to achieve highly faithful surface reconstruction.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="VP2P_stop_all()" onmouseover="VP2P_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="VP2P_all" style="opacity: 0;">
+                    <video width="225" muted="" autoplay="" loop="">
+                      <source src="media/Video_VP2PMatching_before.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <img src="media/Video_VP2PMatching_after.png" width="225">
+        
+                </div>
+  
+                <script type="text/javascript">
+                  function VP2P_start_all() {
+                    document.getElementById('VP2P_all').style.opacity = "1";
+                  }
+                  function VP2P_stop_all() {
+                    document.getElementById('VP2P_all').style.opacity = "0";
+                  }
+                  VP2P_stop_all()
+                </script>
+              </td>
+        
+              <td width="65%" valign="top">
+                <a href="https://github.com/junshengzhou/VP2P-Match">
+                  <papertitle>Differentiable Registration of Images and LiDAR Point Clouds with VoxelPoint-to-Pixel Matching
+                  </papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://wen-yuan-zhang.github.io/">Wenyuan Zhang</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>,
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2023  (<strong><span style="color:#ff0000;">Spotlight</span></strong>)
+                <br>
+                <a href="https://github.com/junshengzhou/VP2P-Match">project page</a> |             
+                <a href="https://arxiv.org/abs/2312.04060">arXiv</a> |
+                <a href="https://github.com/junshengzhou/VP2P-Match">code</a>
+        
+                <p align="justify", style="font-size:13px">We design a triplet network to learn VoxelPoint-to-Pixel matching via a differentiable probabilistic PnP solver.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="ICCVUDF_stop_all()" onmouseover="ICCVUDF_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="ICCVUDF_all" style="opacity: 0;">
+                    <img src='media/iccv23udf_before.gif' width="225">
+                  </div>
+                  <img src="media/ICCVUDF_after.png" width="225">
+  
+                </div>
+                <script type="text/javascript">
+                  function ICCVUDF_start_all() {
+                    document.getElementById('ICCVUDF_all').style.opacity = "1";
+                  }
+                  function ICCVUDF_stop_all() {
+                    document.getElementById('ICCVUDF_all').style.opacity = "0";
+                  }
+                  ICCVUDF_stop_all()
+                </script>
+              </td>
+  
+              <td width="65%" valign="top">
+                <a href="https://github.com/junshengzhou/LevelSetUDF">
+                  <papertitle>Learning a More Continuous Zero Level Set in Unsigned Distance Fields through Level Set Projection
+                  </papertitle>
+                </a>
+                <br>
+                <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, Shujuan Li, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE/CVF International Conference on Computer Vision <b>(ICCV)</b></em>, 2023
+                <br>
+                <a href="https://github.com/junshengzhou/LevelSetUDF">project page</a> |             
+                <a href="https://arxiv.org/abs/2308.11441/">arXiv</a> |
+                <a href="https://github.com/junshengzhou/LevelSetUDF">code</a>
+  
+                <p align="justify", style="font-size:13px">We propose to guide the learning of zero level set in UDF using the rest non-zero level sets via a projection procedure.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="LSA_stop_all()" onmouseover="LSA_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="LSA" style="opacity: 0;">
+                    <img src='media/GradientConsistency_before.gif' width="225">
+                  </div>
+                  <img src="media/LSA_after.png" width="225">
+  
+                </div>
+                <script type="text/javascript">
+                  function LSA_start_all() {
+                    document.getElementById('LSA').style.opacity = "1";
+                  }
+                  function LSA_stop_all() {
+                    document.getElementById('LSA').style.opacity = "0";
+                  }
+                  LSA_stop_all()
+                </script>
+              </td>
+  
+              <td width="65%" valign="top">
+                <a href="https://github.com/mabaorui/TowardsBetterGradient/">
+                  <papertitle>Towards Better Gradient Consistency for Neural Signed Distance Functions via Level Set Alignment</papertitle>
+                </a>
+                <br>
+                <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <strong>Junsheng Zhou*</strong>, 
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2023
+                <br>
+                <a href="https://github.com/mabaorui/TowardsBetterGradient/">project page</a> |             
+                <a href="http://arxiv.org/abs/2305.11601/">arXiv</a> |
+                <a href="https://github.com/mabaorui/TowardsBetterGradient/">code</a>
+  
+                <p align="justify", style="font-size:13px">We propose a level set alignment loss to
+                  evaluate the parallelism of level sets, which can be minimized to achieve better gradient consistency and eliminate uncertainty in the field.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="SMI_stop_all()" onmouseover="SMI_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="SMI" style="opacity: 0;">
+                    <img src='media/smi_before.png' width="225">
+                  </div>
+                  <img src="media/smi_after.png" width="225">
+  
+                </div>
+                <script type="text/javascript">
+                  function SMI_start_all() {
+                    document.getElementById('SMI').style.opacity = "1";
+                  }
+                  function SMI_stop_all() {
+                    document.getElementById('SMI').style.opacity = "0";
+                  }
+                  SMI_stop_all()
+                </script>
+              </td>
+  
+              <td width="65%" valign="top">
+                <a href="">
+                  <papertitle>Multi-Grid Representation with Field Regularization for Self-Supervised Surface Reconstruction from Point Clouds</papertitle>
+                </a>
+                <br>
+                Chuan Jin, <a href="https://sai.jlu.edu.cn/info/1094/3443.htm"> Tieru Wu</a>, <strong>Junsheng Zhou</strong>
+                <br>
+                <em>Shape Modeling International <b>(SMI)</b></em>, 2023
+                &nbsp &nbsp | &nbsp &nbsp 
+                <em>Computers & Graphics  <b>(C&G)</b></em>, 2023
+                <br>
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0097849323001097">project page</a> |             
+                <a href="">arXiv</a> |
+                <a href="">code</a>
+  
+                <p align="justify", style="font-size:13px">A research project on 3D vision at Jilin University that I served as the advisor.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="neaf_stop_all()" onmouseover="neaf_start_all()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="neaf" style="opacity: 0;">
+                    <img src='media/neaf_before.gif' width="225">
+                  </div>
+                  <img src="media/neaf_after.png" width="225">
+  
+                </div>
+                <script type="text/javascript">
+                  function neaf_start_all() {
+                    document.getElementById('neaf').style.opacity = "1";
+                  }
+                  function neaf_stop_all() {
+                    document.getElementById('neaf').style.opacity = "0";
+                  }
+                  neaf_stop_all()
+                </script>
+              </td>
+  
+              <td width="65%" valign="top">
+                <a href="https://github.com/lisj575/NeAF/">
+                  <papertitle>NeAF: Learning Neural Angle Fields for Point Normal Estimation</papertitle>
+                </a>
+                <br>
+                Shujuan Li*, <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma</a>,
+                <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>AAAI Conference on Artificial Intelligence <b>(AAAI)</b></em>, 2023 (<strong><span style="color:#ff0000;">Oral</span></strong>)
+                <br>
+                <a href="https://lisj575.github.io/NeAF/">project page</a> |             
+                <a href="https://arxiv.org/pdf/2211.16869.pdf">arXiv</a> |
+                <a href="https://github.com/lisj575/NeAF/">code</a>
+  
+                <p align="justify", style="font-size:13px">We present NeAF, a novel schema to learn implicit angle fields for point normal estimation. 
+                  NeAF extends the success of implicit functions (e.g. NeRF and DeepSDF) to normal estimation.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+              <tbody>
+              <tr onmouseout="capudf_stop_all()" onmouseover="capudf_start_all()">
+                <td width="28%">
+                  <div class="one">
+                    <div class="two" id="capudf_shape_all" style="opacity: 0;">
+                      <img src='media/capudf_before.png' width="225">
+                    </div>
+                    <img src="media/capudf_after.png" width="225">
+  
+                  </div>
+                  <script type="text/javascript">
+                    function capudf_start_all() {
+                      document.getElementById('capudf_shape_all').style.opacity = "1";
+                    }
+                    function capudf_stop_all() {
+                      document.getElementById('capudf_shape_all').style.opacity = "0";
+                    }
+                    capudf_stop_all()
+                  </script>
+                </td>
+    
+                <td width="65%" valign="top">
+                  <a href="https://junshengzhou.github.io/CAP-UDF/">
+                    <papertitle>Learning Consistency-Aware Unsigned Distance Functions Progressively from Raw Point Clouds</papertitle>
+                  </a>
+                  <br>
+                  <strong>Junsheng Zhou*</strong>, <a href="https://mabaorui.github.io/"> Baorui Ma*</a>, <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="http://mmvc.engineering.nyu.edu/">Yi Fang</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                  <br>
+                  <em>Conference on Neural Information Processing Systems <b>(NeurIPS)</b></em>, 2022 
+                  <br>
+                  <a href="https://junshengzhou.github.io/CAP-UDF/">project page</a> |             
+                  <a href="https://arxiv.org/pdf/2210.02757.pdf">arXiv</a> |
+                  <a href="https://github.com/junshengzhou/CAP-UDF">code</a>
+  
+                  <p align="justify", style="font-size:13px">We present CAP-UDF to represent shapes and scenes with arbitrary architecture by learning a Consistency-Aware unsigned distance function Progressively.
+                  </p>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+  
+            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+              <tbody>
+              <tr onmouseout="attriflow_stop_all()" onmouseover="attriflow_start_all()">
+                <td width="28%">
+                  <div class="one">
+                    <div class="two" id="attriflow_shape" style="opacity: 0;">
+                      <img src='media/attriflow_before.gif' width="225">
+                    </div>
+                    <img src="media/attriflow_after.png" width="225">
+  
+                  </div>
+                  <script type="text/javascript">
+                    function attriflow_start_all() {
+                      document.getElementById('attriflow_shape').style.opacity = "1";
+                    }
+                    function attriflow_stop_all() {
+                      document.getElementById('attriflow_shape').style.opacity = "0";
+                    }
+                    attriflow_stop_all()
+                  </script>
+                </td>
+    
+                <td width="65%" valign="top">
+                  <a href="https://github.com/junshengzhou/3DAttriFlow">
+                    <papertitle>3D Shape Reconstruction from 2D Images with Disentangled Attribute Flow</papertitle>
+                  </a>
+                  <br>
+                  <a href="https://scholar.google.com/citations?user=7gcGzs8AAAAJ&hl=zh-CN&oi=ao"> Xin Wen*</a>, <strong>Junsheng Zhou*</strong>, 
+                  <a href="https://yushen-liu.github.io/"> Yu-Shen Liu</a>, Hua Su, <a href="https://dongzhenwhu.github.io/index.html">Zhen Dong</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                  <br>
+                  <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b></em>, 2022 
+                  <br>
+                  <a href="https://github.com/junshengzhou/3DAttriFlow">project page</a> |             
+                  <a href="https://arxiv.org/abs/2203.15190">arXiv</a> |
+                  <a href="https://github.com/junshengzhou/3DAttriFlow">code</a>
+  
+                  <p align="justify", style="font-size:13px">We present 3DAttriFlow to obtain high-quality 2D-to-3D reconstruction and point cloud completion results, while allowing controlled semantic attribute editing.
+                  </p>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+        </div>
+
 
 
 
@@ -971,6 +1559,8 @@
                 <heading>Honors and Awards</heading>
                 <ul>
 
+                  <li> <strong>Baidu Scholarship</strong> (百度奖学金, 10 Ph.D students worldwide), 2024.
+                  </li>
                   <li> <strong>National Scholarship</strong> (国家奖学金, Top 1% at Tsinghua University), 2023.
                   </li>
                   <li> <strong>The 3rd Place</strong> in the MVP Completion Challenge (<b>ICCV 2021</b> Workshop)</strong>, 2021.
@@ -993,9 +1583,9 @@
                   </li>
                   <li> <strong>Program Committee Member</strong>: ICLR-24, IJCAI-24, WWW-24, AAAI-25
                   </li>
-                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23/24, ICML-24, CVPR-23/24, ICCV-23, SIGGRAPH Asia-24, ECCV-24, BMVC-23/24, AISTATS-25
+                  <li> <strong>Conference Reviewer</strong>: NeurIPS-23/24/25, ICML-24/25, CVPR-23/24/25, ICCV-23/25, SIGGRAPH Asia-24, ECCV-24, ACM MM-25, BMVC-23/24, AISTATS-25, WACV-25
                   </li>
-                  <li> <strong>Journal Reviewer</strong>: TOG, TVCG, TIP, CVMJ
+                  <li> <strong>Journal Reviewer</strong>: TOG, TVCG, TIP, CVMJ, RA-L, TCSVT
                   </li>
 
                 </ul>
@@ -1025,7 +1615,7 @@
                 <font size="2">
                 template adapted from <a href="https://jonbarron.info/"><font size="2">this awesome website</font></a>
                 <br>
-                Last updated: Oct 2024
+                Last updated: May 2024
                 <br>
                 
               </font>
