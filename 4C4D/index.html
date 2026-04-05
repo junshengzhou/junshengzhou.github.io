@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="4C4D: 4 Camera 4D Gaussian Splatting">
+  <meta name="keywords" content="4C4D, 4D Gaussian Splatting, sparse view, dynamic scenes">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4C4D: 4 Camera 4D Gaussian Splatting</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- <script type="text/javascript" src="./gb3d_bundle.js"></script> -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://junshengzhou.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://weiqi-zhang.github.io/UDiFF/">
+            UDiFF
+          </a>
+          <a class="navbar-item" href="https://junshengzhou.github.io/DiffGS/">
+            DiffGS
+          </a>
+          <a class="navbar-item" href="https://junshengzhou.github.io/DeepPriorAssembly">
+            DeepPriorAssembly
+          </a>
+          <a class="navbar-item" href="https://github.com/baaivision/Uni3D">
+            Uni3D
+          </a>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">4C4D: 4 Camera 4D Gaussian Splatting</h1>
+          <p style="line-height: 0.5;">&nbsp;</p>
+          <div class="column is-full_width">
+            <h2 class="title is-4">CVPR 2026</h2>
+          </div>
+          <p style="line-height: 0.5;">&nbsp;</p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://junshengzhou.github.io/">Junsheng Zhou</a><sup>1*</sup>
+            </span><span class="author-sep">,&nbsp;</span>
+            <span class="author-block">
+              Zhifan Yang<sup>1*</sup>
+            </span><span class="author-sep">,&nbsp;</span>
+            <span class="author-block">
+              Liang Han<sup>1</sup>
+            </span><span class="author-sep">,&nbsp;</span>
+            <span class="author-block">
+              <a href="https://wen-yuan-zhang.github.io/">Wenyuan Zhang</a><sup>1</sup>
+            </span><span class="author-sep">,&nbsp;</span>
+            <span class="author-block">
+              Kanle Shi<sup>2</sup>
+            </span><span class="author-sep">,&nbsp;</span>
+            <span class="author-block">
+              Shenkun Xu<sup>2</sup>
+            </span><span class="author-sep">,&nbsp;</span>
+            <span class="author-block">
+              <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a><sup>1</sup>
+            </span>
+          </div>
+          <p style="line-height: 1;">&nbsp;</p>
+          <div class="column is-full_width">
+            <h2 class="is-size-6">* Equal Contribution</h2>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>School of Software, Tsinghua University,&nbsp&nbsp <sup>2</sup>Kuaishou Technology</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark"
+                   title="Link to be announced">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark"
+                   title="Link to be announced">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered has-text-centered">
+        <div class="columns">
+          <h2 class="title is-3" style="margin-top: -30px">
+          <img src="./resources/illustration.png" class="center"></h2>
+        </div>
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper tackles the challenge of recovering 4D dynamic scenes from videos captured by as few as four portable cameras. Learning to model scene dynamics for temporally consistent novel-view rendering is a foundational task in computer graphics, where previous works often require dense multi-view captures using camera arrays of dozens or even hundreds of views. We propose <b><i>4C4D</i></b>, a novel framework that enables high-fidelity 4D Gaussian Splatting from video captures of extremely sparse cameras. Our key insight lies that the geometric learning under sparse settings is substantially more difficult than modeling appearance. Driven by this observation, we introduce a Neural Decaying Function on Gaussian opacities for enhancing the geometric modeling capability of 4D Gaussians. This design mitigates the inherent imbalance between geometry and appearance modeling in 4DGS by encouraging the 4DGS gradients to focus more on geometric learning. Extensive experiments across sparse-view datasets with varying camera overlaps show that 4C4D achieves superior performance over prior art.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- <h2 class="subtitle has-text-centered">
+  <strong>DeepPriorAssembly</strong> learns a continuous UDF to represent shapes with arbitary architecture.
+</h2> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+
+        <img src="./resources/overview.png" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            <b>Overview of 4C4D.</b> We introduce a Neural Decaying Function $f_\theta$, implemented as a lightweight neural network, to adaptively control the opacity decay of Gaussians. Given key Gaussian attributes as input, $f_\theta$ predicts a factor that controls the decay of Gaussian opacities. During training, both the Neural Decaying Function and the 4D Gaussians are jointly optimized via gradient backpropagation under a photometric rendering loss.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Comparisons with SOTA Methods</h2>
+
+        <div class="content has-text-justified">
+          <p>
+             
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/n3v_comp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Geometry Consistency</h2>
+
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/geo_consis.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <!-- <div class="column is-full-width">
+          <h3 class="title is-4">DeepFashion3D</h3>
+          <img src="./resources/condition_img.png" class="center">
+  
+        </div> -->
+        <br>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+                
+        <div class="content has-text-centered">
+          <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Results on Self-Captured Dyn4Cam Dataset</h2>
+
+          <video id="replay-video"
+                 autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 loop
+                 width="100%">
+            <source src="./resources/dyn4cam.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+
+
+
+
+        <br>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{zhou20264c4d,
+      title     = {4C4D: 4 Camera 4D Gaussian Splatting},
+      author    = {Zhou, Junsheng and Yang, Zhifan and Han, Liang and Zhang, Wenyuan and Shi, Kanle and Xu, Shenkun and Liu, Yu-Shen},
+      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+      year      = {2026}
+  }
+  </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This webpage template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+</body>
+</html>

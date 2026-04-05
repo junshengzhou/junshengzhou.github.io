@@ -818,6 +818,47 @@
         <!-- All Publications Section -->
         <div id="allPublications" style="display: none;">
 
+          
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+            <tr onmouseout="vidsplat_stop()" onmouseover="vidsplat_start()">
+              <td width="28%">
+                <div class="one">
+                  <div class="two" id="vidsplat" style="opacity: 0;">
+                    <img src="media/vidsplat_after.png" width="225">
+                  </div>
+                  <img src="media/vidsplat_before.png" width="225">
+                </div>
+                <script type="text/javascript">
+                  function vidsplat_start() {
+                    document.getElementById('vidsplat').style.opacity = "1";
+                  }
+                  function vidsplat_stop() {
+                    document.getElementById('vidsplat').style.opacity = "0";
+                  }
+                  vidsplat_stop()
+                </script>
+              </td>
+
+              <td width="65%" valign="top">
+                <a href=""><papertitle>VidSplat: Gaussian Splatting Reconstruction with Geometry-Guided Video Diffusion Priors</papertitle></a>
+                <br>
+                <a href="">Jimin Tang</a>, <a href="https://wen-yuan-zhang.github.io/">Wenyuan Zhang</a>, <strong>Junsheng Zhou</strong>, <a href="">Zian Huang</a>, <a href="">Kanle Shi</a>, <a href="">Shenkun Xu</a>,
+                <a href="https://yushen-liu.github.io/">Yu-Shen Liu</a>, <a href="https://h312h.github.io/">Zhizhong Han</a>
+                <br>
+                <em>ACM SIGGRAPH <b>(SIGGRAPH)</b></em>, 2026
+                <br>
+                <a href="">project page</a> |
+                <a href="">arXiv</a> |
+                <a href="">code</a>
+                <p align="justify" style="font-size:13px">Gaussian splatting reconstruction with video diffusion priors for high-quality 3D scene recovery from sparse views or even single view.
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
             <tr onmouseout="udfstudio_all_stop()" onmouseover="udfstudio_all_start()">
@@ -2007,7 +2048,7 @@
                   <li>
                     <strong>Co-organizer</strong>: "EMbodied AI: Trends, Challenges, and Opportunities" in ICIP-24 
                   </li>
-                  <li> <strong>Program Committee Member</strong>: ICLR-24-25, IJCAI-24, WWW-24, AAAI-25
+                  <li> <strong>Program Committee Member</strong>: ICLR-24/25, IJCAI-24, WWW-24, AAAI-25
                   </li>
                   <li> <strong>Conference Reviewer</strong>: NeurIPS-23/24/25, ICML-24/25, CVPR-23/24/25/26, ICCV-23/25, SIGGRAPH Asia-24, ECCV-24/26, ACM MM-25, BMVC-23/24, AISTATS-25, WACV-25
                   </li>
